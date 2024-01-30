@@ -5,10 +5,13 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
+url = f'api/v{env("API_VERSION")}/'
 
 urlpatterns = [
     # TODO: add a joke here 
     path('admin/', admin.site.urls),
     # Authentication
-    path(f'api/v{env("API_VERSION")}/auth/', include('apps.authentication.api.routes.auth.index')),
+    path(f'{url}auth/', include('apps.authentication.api.routes.auth.index')),
+    # Misc
+    path(f'{url}misc/', include('apps.misc.api.routes.typeDocument.index')),
 ]

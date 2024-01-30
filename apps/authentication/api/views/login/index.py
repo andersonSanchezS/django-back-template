@@ -32,13 +32,13 @@ class LoginAV(GenericAPIView):
                 
                 if user.is_superuser:
                     payload = {
-                    'id'             : user.id,
-                    'firstName'      : user.first_name if user.first_name else '',
-                    'lastName'       : user.last_name if user.last_name else '',
-                    'role'           : None,
-                    'email'          : user.email if user.email else '',
-                    'isSuperuser'    : user.is_superuser,
-                    'exp'            : dt.utcnow() + timedelta(days=30)
+                    'id'              : user.id,
+                    'first_name'      : user.first_name if user.first_name else '',
+                    'last_name'       : user.last_name if user.last_name else '',
+                    'role'            : None,
+                    'email'           : user.email if user.email else '',
+                    'is_superuser'    : user.is_superuser,
+                    'exp'             : dt.utcnow() + timedelta(days=30)
                 }
 
                 # Generate the token

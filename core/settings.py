@@ -31,12 +31,11 @@ USE_THOUSAND_SEPARATOR = True
 DECIMAL_SEPARATOR      = ","
 THOUSAND_SEPARATOR     = "."
 
-
 # Application definition
 BASE_APPS        = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
                     'django.contrib.messages','django.contrib.staticfiles','django.contrib.humanize']
 
-LOCAL_APPS       = ['apps.base', 'apps.authentication']
+LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc']
 
 THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab']
 
@@ -44,6 +43,7 @@ INSTALLED_APPS   = BASE_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'apps.base.middlewares.authMiddleware.AuthMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
 ROOT_URLCONF = 'core.urls'
