@@ -1,0 +1,21 @@
+[
+    {
+        "model": "authentication.users",
+        "pk": "01HMVKMR4K82RYYYP12CT0SDNN",
+        "fields": {
+            "first_name": "smart",
+            "last_name": "admin",
+            "description": null,
+            "email": "prod@yopmail.com",
+            "username": "smart.admin",
+            "password": "b'$2b$12$AXfS8qBlFV2sbVYBREd2E.HJ5sw8K8CslpKmqW84TixsMQBjauh9e'",
+            "phone_number": "573186078741",
+            "code": "069",
+            "is_superuser": true,
+            "created_at":"2024-01-23T00:00:00.000Z",
+            "updated_at":"2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    }
+]
