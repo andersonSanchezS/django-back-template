@@ -15,6 +15,7 @@ class Users(BaseModel):
     phone_number      = models.CharField(max_length=255, blank=True, null=True, unique=False)
     code              = models.CharField(max_length=255, blank=True, null=True)
     is_superuser      = models.BooleanField(default=False)
+    custom_permissions = models.ManyToManyField('authentication.permission', related_name='users_custom_permission', blank=True)
     
     class Meta:
         db_table            = 'users'
