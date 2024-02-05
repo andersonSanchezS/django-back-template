@@ -2,19 +2,17 @@ from django.db import models
 import ulid
 import time
 from datetime import datetime as dt
-from django.core import serializers
+from django.apps import apps
 
-class ActivityLog(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    model      = models.CharField(max_length=255)
-    action     = models.CharField(max_length=255)
-    user       = models.ForeignKey('authentication.Users', on_delete=models.CASCADE, related_name='%(class)s_created_at', null=True, default=None)
-    data       = models.JSONField(null=True, blank=True)
+class BaseLog(models.Model):
+    action_time = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
+    action = models.CharField(max_length=255)
+    previousValues = models.JSONField(null=True, blank=True)
+    newValues = models.JSONField(null=True, blank=True)
 
     class Meta:
-        db_table            = 'activity_logs'
-        verbose_name        = 'activity_log'
-        verbose_name_plural = 'activity_log'
+        abstract = True
 
 
 class BaseModel(models.Model):
@@ -27,38 +25,59 @@ class BaseModel(models.Model):
     user_created_at = models.ForeignKey('authentication.Users', on_delete=models.CASCADE, related_name='%(class)s_created_at', null=True, default=None)
     user_updated_at = models.ForeignKey('authentication.Users', on_delete=models.CASCADE, related_name='%(class)s_updated_at', null=True, default=None)
 
+
     class Meta:
         abstract = True
 
     def save(self, *args, **kwargs):
-        if not self.id:
-            self.id = ulid.new().str
-
-        if not self.created_at_unix:
-            self.created_at = dt.now()
-            self.created_at_unix = int(time.time())
-
-        self.updated_at_unix = int(time.time())
-        self.updated_at = dt.now()
-
-        super(BaseModel, self).save(*args, **kwargs)
-
-        # Crear registro en el log
         try:
-            # Parse the data into a json
-            jsonData = serializers.serialize('json', [self, ])
-            ActivityLog.objects.create(
-                model=self.__class__.__name__,
-                action='CREATE',
-                user=self.user_created_at,
-                data=jsonData
-            )
+
+            if not self.id:
+                self.id = ulid.new().str
+
+            if not self.created_at_unix:
+                self.created_at = dt.now()
+                self.created_at_unix = int(time.time())
+
+            self.updated_at_unix = int(time.time())
+            self.updated_at = dt.now()
+
+
+            baseFields = ['id', 'created_at', 'updated_at', 'created_at_unix', 'updated_at_unix', 'user_updated_at_id', 'user_created_at_id','_state']
+            app        = self._meta.app_label
+            className  = self.__class__.__name__+'Log'
+            # get the model instance from the app
+            model      = apps.get_model(app, className)
+            # filter the fields and remove the fields who are in the baseFields list
+            fields     = {k:v for k,v in self.__dict__.items() if k not in baseFields}
+            # parse to camel case
+            logRelation = {
+                self.__class__.__name__[0].lower() + self.__class__.__name__[1:] : self
+            }
+            if self._state.adding:
+                action = 'CREATE'
+                user   = self.user_created_at
+                super(BaseModel, self).save(*args, **kwargs)
+                model.objects.create( action_time=dt.now(), user=user, action=action, newValues=None, previousValues=None, **logRelation)
+            else:
+                action = 'UPDATE'
+                user   = self.user_updated_at
+                previousData = self.__class__.objects.get(id=self.id)
+                # compare the new data with the previous data and get the fields that have changed
+                newFields = {k:v for k,v in fields.items() if getattr(previousData, k) != v}
+                # based on the new data get the fields that have changed and get the previous value
+                previousFields = {k:getattr(previousData, k) for k,v in newFields.items()}
+                # compare the state of the previous data with the new data
+                if 'state' in previousFields and 'state' in newFields:
+                    if previousFields['state'] == 1 and newFields['state'] == 0:
+                        action = 'DELETE'
+                    elif previousFields['state'] == 0 and newFields['state'] == 1:
+                        action = 'RESTORE'
+                # get the name of the updated fields divide them by a comma
+                model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
+
+                super(BaseModel, self).save(*args, **kwargs)
         except Exception as e:
             print(e)
+        
 
-
-    def update(self, *args, **kwargs):
-        # Actualizar siempre updated_at_unix
-        self.updated_at_unix = int(time.time())
-
-        super(BaseModel, self).update(*args, **kwargs)

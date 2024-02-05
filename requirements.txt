@@ -48,3 +48,4 @@ django-redis
 django-cacheops
 django-crontab
 bcrypt
+django-model-utils

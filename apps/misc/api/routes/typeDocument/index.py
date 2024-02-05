@@ -4,4 +4,5 @@ from apps.misc.api.views.typeDocument.index  import TypeDocumentAV
 
 urlpatterns = [
     path('typeDocument', TypeDocumentAV.as_view(), name='typeDocument'),
+    path('typeDocument/<str:pk>', TypeDocumentAV.as_view(), name='typeDocument'),
 ]

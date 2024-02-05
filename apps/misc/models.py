@@ -1,1 +1,1 @@
-from apps.misc.api.models.typeDocument.index import TypeDocument
+from apps.misc.api.models.typeDocument.index import TypeDocument, TypeDocumentLog
