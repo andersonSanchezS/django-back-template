@@ -125,8 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -137,14 +135,10 @@ USE_I18N      = True
 USE_TZ        = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL  = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -158,19 +152,19 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES'    : [],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'EXCEPTION_HANDLER': 'apps.base.exceptions.custom_exception_handler',
+    'DEFAULT_FILTER_BACKENDS'       : ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PAGINATION_CLASS'      : 'rest_framework.pagination.PageNumberPagination',
+    'EXCEPTION_HANDLER'             : 'apps.base.exceptions.custom_exception_handler',
     'PAGE_SIZE': 30,
 }
 
 
 # SMTP settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env("EMAIL_HOST")
-EMAIL_PORT = env("EMAIL_PORT")
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST          = env("EMAIL_HOST")
+EMAIL_PORT          = env("EMAIL_PORT")
+EMAIL_USE_TLS       = True
+EMAIL_HOST_USER     = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = f'{env("EMAIL_HOST_PASSWORD")}'
 
 # S3 settings

@@ -46,13 +46,16 @@ class AuthMiddleware:
 
             # get the user from the request
             user = Users.objects.get(id=checkToken['id'])
-
             # check if the user is active
             if user.state == 0:
                 return JsonResponse({'error': True, 'message': 'El usuario se encuentra inactivo.'}, status=401)
             
-            requestBody = json.loads(request.body.decode('utf-8'))
+            # if the request has a body
+            if not request.body:
+                response = self.get_response(request)
+                return response
 
+            requestBody = json.loads(request.body.decode('utf-8'))
             # check if the request method is post put or patch
             if request.method == 'POST':
                 # add the user to the request - user_created_at
@@ -61,7 +64,6 @@ class AuthMiddleware:
             elif request.method in ['PUT', 'PATCH']:
                 # add the user to the request - user_updated_at
                 requestBody['user_updated_at'] = user.id
-
             # new body length
             request.META['CONTENT_LENGTH'] = len(json.dumps(requestBody).encode('utf-8'))
             

@@ -1,15 +1,15 @@
-from django.db import models
+from   django.db   import models
+from   datetime    import datetime as dt
+from   django.apps import apps
+from   apps.base.enums import LogActionsEnum
 import ulid
 import time
-from datetime import datetime as dt
-from django.apps import apps
-
 class BaseLog(models.Model):
-    action_time = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
-    action = models.CharField(max_length=255)
+    action_time    = models.DateTimeField(auto_now=True)
+    user           = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
+    action         = models.CharField(max_length=255)
     previousValues = models.JSONField(null=True, blank=True)
-    newValues = models.JSONField(null=True, blank=True)
+    newValues      = models.JSONField(null=True, blank=True)
 
     class Meta:
         abstract = True
@@ -55,12 +55,12 @@ class BaseModel(models.Model):
                 self.__class__.__name__[0].lower() + self.__class__.__name__[1:] : self
             }
             if self._state.adding:
-                action = 'CREATE'
+                action = LogActionsEnum.CREATE
                 user   = self.user_created_at
                 super(BaseModel, self).save(*args, **kwargs)
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=None, previousValues=None, **logRelation)
             else:
-                action = 'UPDATE'
+                action = LogActionsEnum.UPDATE
                 user   = self.user_updated_at
                 previousData = self.__class__.objects.get(id=self.id)
                 # compare the new data with the previous data and get the fields that have changed
@@ -70,9 +70,9 @@ class BaseModel(models.Model):
                 # compare the state of the previous data with the new data
                 if 'state' in previousFields and 'state' in newFields:
                     if previousFields['state'] == 1 and newFields['state'] == 0:
-                        action = 'DELETE'
+                        action = LogActionsEnum.DELETE
                     elif previousFields['state'] == 0 and newFields['state'] == 1:
-                        action = 'RESTORE'
+                        action = LogActionsEnum.RESTORE
                 # get the name of the updated fields divide them by a comma
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
 
