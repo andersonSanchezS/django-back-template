@@ -35,7 +35,7 @@ THOUSAND_SEPARATOR     = "."
 BASE_APPS        = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
                     'django.contrib.messages','django.contrib.staticfiles','django.contrib.humanize']
 
-LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc']
+LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc', 'apps.clients']
 
 THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab']
 

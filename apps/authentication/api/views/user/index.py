@@ -35,7 +35,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Users.DoesNotExist:
             return response.failed('Usuario no encontrado', 404)
         except Exception as e:
-            return response.failed(str(e), 500)
+            return response.failed(e.message,e.status_code)
 
 
     def post(self, request):

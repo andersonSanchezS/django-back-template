@@ -12,6 +12,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Authentication
     path(f'{url}auth/', include('apps.authentication.api.routes.auth.index')),
+    # Permissions
+    path(f'{url}auth/', include('apps.authentication.api.routes.permission.index')),
     # Users
     path(f'{url}auth/', include('apps.authentication.api.routes.user.index')),
     # Misc
