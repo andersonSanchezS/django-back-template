@@ -50,6 +50,9 @@ class AuthMiddleware:
             if user.state == 0:
                 return JsonResponse({'error': True, 'message': 'El usuario se encuentra inactivo.'}, status=401)
             
+            # add the user to the request
+            request._user = user
+
             # if the request has a body
             if not request.body:
                 response = self.get_response(request)

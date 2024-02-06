@@ -8,6 +8,7 @@ from apps.misc.api.filters.typeDocument.index import TypeDocumentFilter
 from apps.misc.api.serializer.typeDocument.index import TypeDocumentSerializer
 # Utils
 from apps.base.utils.index import response
+from apps.base.decorators.checkPermissions import checkPermissions
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
 
 

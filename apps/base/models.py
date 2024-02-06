@@ -81,3 +81,15 @@ class BaseModel(models.Model):
             print(e)
         
 
+class RequestLog(models.Model):
+    ip           = models.CharField(max_length=255)
+    method       = models.CharField(max_length=255)
+    path         = models.CharField(max_length=255)
+    body         = models.TextField(null=True, blank=True)
+    request_date = models.DateTimeField(auto_now_add=True)
+    user         = models.ForeignKey('authentication.Users', on_delete=models.CASCADE, null=True, blank=True)
+
+    class Meta:
+        db_table            = 'request_logs'
+        verbose_name        = 'request_log'
+        verbose_name_plural = 'request_logs'

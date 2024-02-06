@@ -44,6 +44,7 @@ INSTALLED_APPS   = BASE_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'apps.base.middlewares.authMiddleware.AuthMiddleware',
+    'apps.base.middlewares.loggingMiddleware.LoggingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
