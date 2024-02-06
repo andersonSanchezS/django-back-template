@@ -155,7 +155,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES'    : [],
     'DEFAULT_FILTER_BACKENDS'       : ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS'      : 'rest_framework.pagination.PageNumberPagination',
-    'EXCEPTION_HANDLER'             : 'apps.base.exceptions.custom_exception_handler',
+    'EXCEPTION_HANDLER'             : ['apps.base.exceptions.custom_exception_handler'],
     'PAGE_SIZE': 30,
 }
 

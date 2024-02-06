@@ -76,5 +76,4 @@ class AuthMiddleware:
             response = self.get_response(request)
             return response
         except Exception as e:
-            print(e)
             raise HTTPException(e.message, 500)

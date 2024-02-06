@@ -55,24 +55,26 @@ class BaseModel(models.Model):
                 self.__class__.__name__[0].lower() + self.__class__.__name__[1:] : self
             }
             if self._state.adding:
-                action = LogActionsEnum.CREATE
+                action = LogActionsEnum.CREATE.value
                 user   = self.user_created_at
                 super(BaseModel, self).save(*args, **kwargs)
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=None, previousValues=None, **logRelation)
             else:
-                action = LogActionsEnum.UPDATE
+                action = LogActionsEnum.UPDATE.value
                 user   = self.user_updated_at
                 previousData = self.__class__.objects.get(id=self.id)
                 # compare the new data with the previous data and get the fields that have changed
                 newFields = {k:v for k,v in fields.items() if getattr(previousData, k) != v}
                 # based on the new data get the fields that have changed and get the previous value
                 previousFields = {k:getattr(previousData, k) for k,v in newFields.items()}
+                # check for the many to many fields
+                
                 # compare the state of the previous data with the new data
                 if 'state' in previousFields and 'state' in newFields:
                     if previousFields['state'] == 1 and newFields['state'] == 0:
-                        action = LogActionsEnum.DELETE
+                        action = LogActionsEnum.DELETE.value
                     elif previousFields['state'] == 0 and newFields['state'] == 1:
-                        action = LogActionsEnum.RESTORE
+                        action = LogActionsEnum.RESTORE.value
                 # get the name of the updated fields divide them by a comma
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
 
