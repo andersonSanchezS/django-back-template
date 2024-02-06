@@ -5,7 +5,7 @@ from apps.base.models import BaseModel, BaseLog
 
 
 class Role(BaseModel):
-    description    = models.CharField(max_length=255, blank=True, null=True)
+    description    = models.CharField(max_length=255)
     permissions    = models.ManyToManyField('authentication.permission', related_name='roles_clearpermission', blank=True)
         
     class Meta:

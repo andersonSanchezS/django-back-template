@@ -14,6 +14,8 @@ urlpatterns = [
     path(f'{url}auth/', include('apps.authentication.api.routes.auth.index')),
     # Permissions
     path(f'{url}auth/', include('apps.authentication.api.routes.permission.index')),
+    # Roles
+    path(f'{url}auth/', include('apps.authentication.api.routes.role.index')),
     # Users
     path(f'{url}auth/', include('apps.authentication.api.routes.user.index')),
     # Misc
