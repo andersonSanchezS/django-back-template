@@ -11,7 +11,15 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         arg = options['app']
         fixtures_dir = os.path.join('apps', arg, 'fixtures')
+        # order by file name
+        fixtureDir = []
         for fixture in os.listdir(fixtures_dir):
+            if fixture.endswith('.json'):
+                fixtureDir.append(fixture)
+
+        fixtureDir.sort()
+
+        for fixture in fixtureDir:
             if fixture.endswith('.json'):
                 fixture_path = os.path.join(fixtures_dir, fixture)
                 print(f'Cargando fixture {fixture_path}')

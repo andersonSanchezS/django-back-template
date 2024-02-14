@@ -26,7 +26,6 @@ class AuthMiddleware:
 
             # if request path has auth/login, then continue with the normal flow
             checkPath = "auth/login" in request.path
-
             if checkPath:
                 response = self.get_response(request)
                 return response

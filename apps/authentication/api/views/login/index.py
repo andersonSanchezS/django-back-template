@@ -2,13 +2,13 @@
 from rest_framework.generics import GenericAPIView
 from django.db.models import Q
 # Models
-from apps.authentication.models import Users
+from apps.authentication.models import Users, Token
 # Utils
 from apps.base.utils.index import response
 import environ
 import bcrypt
-from datetime import timedelta, datetime as dt
-import jwt
+from apps.authentication.utils.genjwt import genJwt
+
 
 
 class LoginAV(GenericAPIView):
@@ -29,24 +29,10 @@ class LoginAV(GenericAPIView):
                 
                 if checkPassword == False:
                     return response.failed('Usuario o contraseña incorrectos')
-                
-                if user.is_superuser:
-                    payload = {
-                    'id'              : user.id,
-                    'first_name'      : user.first_name if user.first_name else '',
-                    'last_name'       : user.last_name if user.last_name else '',
-                    'role'            : None,
-                    'email'           : user.email if user.email else '',
-                    'is_superuser'    : user.is_superuser,
-                    'exp'             : dt.utcnow() + timedelta(days=30)
-                }
-
-                # Generate the token
-                token = jwt.encode(payload=payload, key=self.env('SECRET_KEY'), algorithm='HS256')
-                # Check token
-                # Create token
-                return response.success('Inicio de sesión exitoso', { 'token': token, 'data': payload })
+                # gen tokens
+                tokens = genJwt(user)
+                return response.success('Inicio de sesión exitoso', { 'access_token': tokens['access_token'], 'refresh_token': tokens['refresh_token'] })
             else:
                 return response.failed('Usuario y/o contraseña incorrectos')    
         except Exception as e:
-            return response.failed(e.message, 500)
+            return response.failed(str(e), 500)

@@ -25,6 +25,10 @@ class LoggingMiddleware:
             # obtener la hora actual
             now = dt.now()
 
+            # obtener el dispositivo desde el cual se hace la solicitud
+            device = request.META.get('HTTP_USER_AGENT')
+            print(device)
+
             # crea un registro de solicitud
             RequestLog.objects.create(
                 ip=ip,
@@ -32,7 +36,7 @@ class LoggingMiddleware:
                 path=path,
                 body=body,
                 request_date=now,
-                user=request._user
+                user=request._user if 'auth/login' not in request.path else None
             )
 
             response = self.get_response(request)

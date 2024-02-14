@@ -12,8 +12,6 @@ class Users(BaseModel):
     email              = models.EmailField(max_length=255, verbose_name='Email', unique=True)
     username           = models.CharField(max_length=255, verbose_name='username', unique=True, null=True, blank=True)
     password           = models.CharField(max_length=255, verbose_name='password', null=True, blank=True)
-    phone_number       = models.CharField(max_length=255, unique=False)
-    code               = models.CharField(max_length=255, blank=True, null=True)
     is_superuser       = models.BooleanField(default=False)
     roles              = models.ManyToManyField('authentication.role', related_name='users_role', blank=True)
     custom_permissions = models.ManyToManyField('authentication.permission', related_name='users_custom_permission', blank=True)

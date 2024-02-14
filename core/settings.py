@@ -35,7 +35,7 @@ THOUSAND_SEPARATOR     = "."
 BASE_APPS        = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
                     'django.contrib.messages','django.contrib.staticfiles','django.contrib.humanize']
 
-LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc', 'apps.clients']
+LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc']
 
 THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab']
 
@@ -84,10 +84,7 @@ if DEBUG:
                 'USER': env('TEST_DB_USER'),
                 'PASSWORD': env('TEST_DB_PASSWORD'),
                 'HOST': env('TEST_DB_HOST'),
-                'PORT': 3306,
-                'OPTIONS':{
-                    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-                }
+                'PORT': 5432,
             },
         }
 else:
@@ -98,10 +95,8 @@ else:
                 'USER': env('DB_USER'),
                 'PASSWORD': env('DB_PASSWORD'),
                 'HOST': env('DB_HOST'),
-                'PORT': 3306,
-                'OPTIONS':{
-                    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-                }
+                'PORT': 5432,
+
             },
         }
 
