@@ -4,20 +4,17 @@ from rest_framework.generics import GenericAPIView
 from apps.authentication.models import Users, Token
 # Utils
 from apps.base.utils.index import response
-import environ
 import jwt
 from apps.authentication.utils.genjwt import genJwt
+from django.conf import settings
 
 
 class RefreshAV(GenericAPIView):
-    # Initialise environment variables
-    env = environ.Env()
-    environ.Env.read_env()
 
     def post(self, request):
         try:
             # decode the token
-            token = jwt.decode(request.data['refresh_token'], key=self.env('SECRET_KEY'), algorithms='HS256')
+            token = jwt.decode(request.data['refresh_token'], key=settings.SECRET_KEY, algorithms='HS256')
             
             # check if the user who is trying to refresh the token exists and it's the same as the token user
             getToken = Token.objects.get(id=token['token_id'])

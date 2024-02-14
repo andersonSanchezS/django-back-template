@@ -6,15 +6,11 @@ from apps.authentication.models import Users
 from apps.base.exceptions import HTTPException
 # Utils
 import jwt
-import environ
 import time
 import json
+from django.conf import settings
 
 class AuthMiddleware:
-
-    # load environment variables
-    env = environ.Env()
-    environ.Env.read_env()
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -35,7 +31,7 @@ class AuthMiddleware:
 
             # check if the token is valid
             try:
-                checkToken = jwt.decode(token, self.env('SECRET_KEY'), algorithms=['HS256'])
+                checkToken = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
             except Exception as e:
                 return JsonResponse({'error': True, 'message': 'El token proporcionado no es válido.'}, status=401)
 

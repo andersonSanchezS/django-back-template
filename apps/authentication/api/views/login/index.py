@@ -12,10 +12,7 @@ from apps.authentication.utils.genjwt import genJwt
 
 
 class LoginAV(GenericAPIView):
-    # Initialise environment variables
-    env = environ.Env()
-    environ.Env.read_env()
-
+    
     def post(self, request):
         try:
             # check if the user exists by his username or password

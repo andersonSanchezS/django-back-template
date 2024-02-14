@@ -1,11 +1,8 @@
 from django.contrib import admin
 from django.urls    import path, include
-import environ
+from django.conf import settings
 
-env = environ.Env()
-environ.Env.read_env()
-
-url = f'api/v{env("API_VERSION")}/'
+url = f'api/v{settings.API_VERSION}/'
 
 urlpatterns = [
     # TODO: add a joke here 

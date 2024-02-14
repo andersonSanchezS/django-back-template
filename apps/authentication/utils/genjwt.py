@@ -6,13 +6,11 @@ import jwt
 import ulid
 import environ
 from django.utils import timezone
-
+from django.conf import settings
 
 
 def genJwt(user):
     try:
-        environment = environ.Env()
-        environment.read_env()
 
         payload = {
                 'id'              : user.id,
@@ -25,12 +23,12 @@ def genJwt(user):
             }
 
         # Generate the token
-        token = jwt.encode(payload=payload, key=environment('SECRET_KEY'), algorithm='HS256')
+        token = jwt.encode(payload=payload, key=settings.SECRET_KEY, algorithm='HS256')
         # Save token
         tokenInstance = Token.objects.create(id=ulid.new().str, token=token, user= user, is_valid= True, expiration= payload['exp'])
         # generate a refresh token
         refreshPayload = { 'token_id' : tokenInstance.id }
-        refreshToken = jwt.encode(payload=refreshPayload, key=environment('SECRET_KEY'), algorithm='HS256')
+        refreshToken = jwt.encode(payload=refreshPayload, key=settings.SECRET_KEY, algorithm='HS256')
         
         return {
             'access_token': token,

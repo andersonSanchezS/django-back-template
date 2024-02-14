@@ -2,8 +2,10 @@ from   django.db   import models
 from   datetime    import datetime as dt
 from   django.apps import apps
 from   apps.base.enums import LogActionsEnum
+from   django.core import serializers
 import ulid
 import time
+import json
 class BaseLog(models.Model):
     action_time    = models.DateTimeField(auto_now=True)
     user           = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
@@ -42,24 +44,25 @@ class BaseModel(models.Model):
             self.updated_at_unix = int(time.time())
             self.updated_at = dt.now()
 
-
-            baseFields = ['id', 'created_at', 'updated_at', 'created_at_unix', 'updated_at_unix', 'user_updated_at_id', 'user_created_at_id','_state']
             app        = self._meta.app_label
             className  = self.__class__.__name__+'Log'
             # get the model instance from the app
             model      = apps.get_model(app, className)
-            # filter the fields and remove the fields who are in the baseFields list
-            fields     = {k:v for k,v in self.__dict__.items() if k not in baseFields}
             # parse to camel case
             logRelation = {
                 self.__class__.__name__[0].lower() + self.__class__.__name__[1:] : self
             }
             if self._state.adding:
+                # get the data of the fields except _state
+                fields = serializers.serialize('json', [self,])
                 action = LogActionsEnum.CREATE.value
                 user   = self.user_created_at
                 super(BaseModel, self).save(*args, **kwargs)
-                model.objects.create( action_time=dt.now(), user=user, action=action, newValues=None, previousValues=None, **logRelation)
+                model.objects.create( action_time=dt.now(), user=user, action=action, newValues=json.loads(fields), previousValues=None, **logRelation)
             else:
+                baseFields = ['id', 'created_at', 'updated_at', 'created_at_unix', 'updated_at_unix', 'user_updated_at_id', 'user_created_at_id','_state']
+                # filter the fields and remove the fields who are in the baseFields list
+                fields     = {k:v for k,v in self.__dict__.items() if k not in baseFields}
                 action = LogActionsEnum.UPDATE.value
                 user   = self.user_updated_at
                 previousData = self.__class__.objects.get(id=self.id)
