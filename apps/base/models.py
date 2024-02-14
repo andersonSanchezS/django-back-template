@@ -92,6 +92,7 @@ class RequestLog(models.Model):
     path         = models.CharField(max_length=255)
     body         = models.TextField(null=True, blank=True)
     request_date = models.DateTimeField(auto_now_add=True)
+    client       = models.CharField(max_length=255, null=True, blank=True)
     user         = models.ForeignKey('authentication.Users', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:

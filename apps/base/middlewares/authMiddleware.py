@@ -70,5 +70,7 @@ class AuthMiddleware:
 
             response = self.get_response(request)
             return response
+        except Users.DoesNotExist:
+            return JsonResponse({'error': True, 'message': 'El usuario no existe.'}, status=401)
         except Exception as e:
             raise HTTPException(e.message, 500)
