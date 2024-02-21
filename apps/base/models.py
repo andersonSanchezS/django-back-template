@@ -1,8 +1,8 @@
-from   django.db   import models
-from   datetime    import datetime as dt
-from   django.apps import apps
+from   django.db       import models
+from   datetime        import datetime as dt
+from   django.apps     import apps
 from   apps.base.enums import LogActionsEnum
-from   django.core import serializers
+from   django.core     import serializers
 import ulid
 import time
 import json

@@ -1,0 +1,62 @@
+[
+    {
+        "model": "misc.typeDocument",
+        "pk": "01HQ6JGTME7CKK1CZW1DXAFDPX",
+        "fields": {
+            "description": "Cédula de ciudadanía",
+            "abbreviation": "CC",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "misc.typeDocument",
+        "pk": "01HQ6JGTME8HMWA0FBE31YW3QN",
+        "fields": {
+            "description": "Cédula de extranjería",
+            "abbreviation": "CE",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "misc.typeDocument",
+        "pk": "01HQ6JGTMEKVYMMFZ8GF09E7Z9",
+        "fields": {
+            "description": "Tarjeta de extranjería",
+            "abbreviation": "TE",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "misc.typeDocument",
+        "pk": "01HQ6JGTMEZXFMYTH7ZP6743WG",
+        "fields": {
+            "description": "NIT",
+            "abbreviation": "NIT",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "misc.typeDocument",
+        "pk": "01HQ6JGTMECWE68BVKP5RN5GK8",
+        "fields": {
+            "description": "Pasaporte",
+            "abbreviation": "PAS",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    }
+]

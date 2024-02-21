@@ -31,9 +31,9 @@ def genJwt(user):
         refreshToken = jwt.encode(payload=refreshPayload, key=settings.SECRET_KEY, algorithm='HS256')
         
         return {
-            'access_token': token,
+            'access_token' : token,
             'refresh_token': refreshToken
-            }
+        }
     
 
     except Exception as e:

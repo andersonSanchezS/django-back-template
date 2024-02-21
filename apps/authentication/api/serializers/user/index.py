@@ -16,30 +16,34 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
         fields = '__all__'
-        extra_kwargs = {"email": { "error_messages": { "required": "El correo es requerido" } },
-                        "phone_number":{ "error_messages": { "required": "El numero de teléfono es requerido" }} }
+        extra_kwargs = {
+            "email": { "error_messages": { "required": "El correo es requerido" } },
+            "phone_number":{ "error_messages": { "required": "El numero de teléfono es requerido" }},
+            "first_name": { "error_messages": { "required": "El nombre es requerido" }},
+            "last_name": { "error_messages": { "required": "El apellido es requerido" }},
+            "type_document": { "error_messages": { "required": "El tipo de documento es requerido" }},
+            "document_number": { "error_messages": { "required": "El número de documento es requerido" }},
+            }
 
     @transaction.atomic
     def create(self, validated_data):
-        try:
-            # validate if description is empty and first_name and last_name are not
-            isNaturalPerson = validated_data['first_name'] != "" or validated_data['last_name'] != ""
-            if not isNaturalPerson and validated_data['description'] == "":
-                raise HTTPException('La razón social es requerida', 400)
-            elif isNaturalPerson and (validated_data['first_name'] == "" or validated_data['last_name'] == "") :
-                raise HTTPException('El nombre y apellido son requeridos', 400)
-            
+        try:            
             # Generate a random password
             password = genPassword(10) if 'password' not in validated_data else validated_data['password']
             validated_data['password'] = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(12))
             # Generate an username
-            validated_data['username'] = validated_data['first_name'] +'.'+validated_data['last_name'] if isNaturalPerson else None
+            validated_data['username'] = validated_data['first_name'] +'.'+validated_data['last_name'] 
+
+            # check if the email has petromil domain next to the @
+            if '@petromil.com' not in validated_data['email']:
+                pass
+            else:
+                validated_data['is_ldap_user'] = True
+            
             # check if the username is unique
             exists = True
 
             while exists:
-                if validated_data['username'] is None:
-                    break
                 exists = Users.objects.filter(username=validated_data['username']).exists()
                 if exists:
                     validated_data['username'] = validated_data['username'] + random.choice('1234567890')
