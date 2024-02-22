@@ -130,6 +130,137 @@
             "created_at_unix": 1735689600,
             "updated_at_unix": 1735689600
         }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6R5YJ9JV3QTE01PS43X6FX",
+        "fields": {
+            "description": "VER MENU",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6R5YJ9NG30EVWYQ1QH9GKH",
+        "fields": {
+            "description": "CREAR MENU",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6R5YJ97QHHY7VWX4N2TSK2",
+        "fields": {
+            "description": "ACTUALIZAR MENU",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6R5YJ896QGFK4M8W5HJ65C",
+        "fields": {
+            "description": "ELIMINAR MENU",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XKXCWQ71DEKP9SY83Y",
+        "fields": {
+            "description": "VER TIPO DE DOCUMENTO",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJJNA47GQQHEV623GE",
+        "fields": {
+            "description": "CREAR TIPO DE DOCUMENTO",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJTSDZ8V9SQ5RKXXVD",
+        "fields": {
+            "description": "ACTUALIZAR TIPO DE DOCUMENTO",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJD509E48K0KH8J786",
+        "fields": {
+            "description": "ELIMINAR TIPO DE DOCUMENTO",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJD509E48K0KH8J786",
+        "fields": {
+            "description": "VER CATEGORÍA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJD509E48K0KH8J786",
+        "fields": {
+            "description": "CREAR CATEGORÍA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJD509E48K0KH8J786",
+        "fields": {
+            "description": "ACTUALIZAR CATEGORÍA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HQ6RB3XJD509E48K0KH8J786",
+        "fields": {
+            "description": "ELIMINAR CATEGORÍA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
     }
-
 ]

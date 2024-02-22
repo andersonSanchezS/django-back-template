@@ -8,6 +8,7 @@ class Menu(BaseModel):
 
     description = models.CharField(max_length=255)
     icon        = models.CharField(max_length=255)
+    url         = models.CharField(max_length=255)
         
     class Meta:
         db_table            = 'menus'

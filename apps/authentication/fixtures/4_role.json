@@ -1,0 +1,102 @@
+[
+  {
+    "model": "authentication.role",
+    "pk": "01HNXGPWXJ1P21HWY0AAJWCFV4",
+    "fields": {
+      "description": "ADMINISTRADOR",
+      "permissions": [
+        "01HNXGXV3C7GGTHTMZPZ3GF4K4",
+        "01HNXGXV3C46E4RKHHPZZZ28B3",
+        "01HNXGXV3CY5ND01SHKE54SP2K",
+        "01HNXGXV3C17EY1M1F0WPB0V48",
+        "01HNXGXV3CJ1PQXFVJJQ2EGHXK",
+        "01HNXGXV3DT0AR0YYPSC9N0EP5",
+        "01HNXGXV3DHAES2R5X2PSP2HQQ",
+        "01HNXGXV3DWZ24JNCEMTADQSW2",
+        "01HNXGXV3DNNRBV3PMKFFA9TNT",
+        "01HNXGXV3DBYAK60BY7V6KV3SS",
+        "01HNXH85JM8DS8HKFWV2QDS4XJ",
+        "01HNXH85JMHQFH62N9FGPTCHY4",
+        "01HQ6R5YJ9JV3QTE01PS43X6FX",
+        "01HQ6R5YJ9NG30EVWYQ1QH9GKH",
+        "01HQ6R5YJ97QHHY7VWX4N2TSK2",
+        "01HQ6R5YJ896QGFK4M8W5HJ65C",
+        "01HQ6RB3XKXCWQ71DEKP9SY83Y",
+        "01HQ6RB3XJJNA47GQQHEV623GE",
+        "01HQ6RB3XJTSDZ8V9SQ5RKXXVD",
+        "01HQ6RB3XJD509E48K0KH8J786",
+        "01HQ6RB3XJD509E48K0KH8J786",
+        "01HQ6RB3XJD509E48K0KH8J786",
+        "01HQ6RB3XJD509E48K0KH8J786",
+        "01HQ6RB3XJD509E48K0KH8J786"
+      ],
+      "menus":[
+        "01HQ6S9KKQ84XHT30NT0YD3Y8B",
+        "01HQ6S9KKRR23MBRZY2SV0KM1P",
+        "01HQ6S9KKRPCJC0KK771MYRQ8S",
+        "01HQ6S9KKRKA2AWS4GX6V5XGXT",
+        "01HQ6S9KKR4A3AVXEFG4NGTEMR",
+        "01HQ6S9KKRW2QN1E53S5HPQSQ7",
+        "01HQ6S9KKRTNSBS5JY5GG2HHTC",
+        "01HQ6S9KKR5T9BWQ302KWHK96S",
+        "01HQ6S9KKRJXA4HV6R5JVR158J",
+        "01HQ6S9KKRSFACM6D8N6JKRSR1",
+        "01HQ6S9KKRB5A3YDXYRZW896QN"
+      ],
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": "01HQ6RZEXENE8HGYJAXSR1GRC0",
+    "fields": {
+      "description": "CLIENTE",
+      "permissions": [],
+      "menus":[
+        "01HQ6S9KKQ84XHT30NT0YD3Y8B",
+        "01HQ6S9KKR4A3AVXEFG4NGTEMR"
+      ],
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": "01HQ6RZEXECX09P8JVY07WMBX1",
+    "fields": {
+      "description": "COMPRADOR",
+      "permissions": [],
+      "menus": [
+        "01HQ6S9KKQ84XHT30NT0YD3Y8B",
+        "01HQ6S9KKR4A3AVXEFG4NGTEMR"
+      ],
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": "01HQ6RZEXE6QZ9XKZ61D4RP8KJ",
+    "fields": {
+      "description": "SUPERVISOR",
+      "permissions": [],
+      "menus":[
+        "01HQ6S9KKQ84XHT30NT0YD3Y8B",
+        "01HQ6S9KKRR23MBRZY2SV0KM1P",
+        "01HQ6S9KKRPCJC0KK771MYRQ8S",
+        "01HQ6S9KKR4A3AVXEFG4NGTEMR"
+      ],
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  }
+]

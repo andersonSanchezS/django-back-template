@@ -1,0 +1,145 @@
+[
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKQ84XHT30NT0YD3Y8B",
+        "fields": {
+            "description": "Dashboard",
+            "url":"dashboard",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRR23MBRZY2SV0KM1P",
+        "fields": {
+            "description": "Categorías",
+            "url":"categories",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRPCJC0KK771MYRQ8S",
+        "fields": {
+            "description": "Compradores",
+            "url":"buyers",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRKA2AWS4GX6V5XGXT",
+        "fields": {
+            "description": "Usuarios",
+            "url":"users",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKR4A3AVXEFG4NGTEMR",
+        "fields": {
+            "description": "Solicitudes",
+            "url":"requests",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRW2QN1E53S5HPQSQ7",
+        "fields": {
+            "description": "Supervisores",
+            "url":"supervisors",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRTNSBS5JY5GG2HHTC",
+        "fields": {
+            "description": "Organizacion de Compras",
+            "url":"purchase-organization",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKR5T9BWQ302KWHK96S",
+        "fields": {
+            "description": "Centros Logísticos",
+            "url":"logistic-center",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRJXA4HV6R5JVR158J",
+        "fields": {
+            "description": "Grupos de Compra",
+            "url":"purchase-group",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRSFACM6D8N6JKRSR1",
+        "fields": {
+            "description": "IVA",
+            "url":"tax",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.menu",
+        "pk": "01HQ6S9KKRB5A3YDXYRZW896QN",
+        "fields": {
+            "description": "Tipos",
+            "url":"types",
+            "icon": "",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    }
+]
