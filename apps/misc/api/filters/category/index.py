@@ -4,6 +4,8 @@ from apps.base.filters import SubstringFilter
 
 class CategoryFilter(django_filters.FilterSet):
     description = SubstringFilter()
+    code        = SubstringFilter()
+
     class Meta:
         model  = Category
-        fields = ['description']
+        fields = ['description', 'code']

@@ -9,6 +9,7 @@ from apps.authentication.api.filters.menu.index import MenuFilter
 # Utils
 from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
+from apps.base.decorators.checkPermissions import checkPermissions
 
 class MenuAV(FilterAndPaginationMixin, GenericAPIView):
     
@@ -16,6 +17,7 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
     serializer_class = MenuSerializer
     filterset_class  = MenuFilter
 
+    @checkPermissions(['ADMINISTRADOR'],['VER MENU'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -35,7 +37,8 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
             return response.failed('Menu no encontrado', 404)
         except Exception as e:
             return response.failed(e.message,e.status_code)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['CREAR MENU'])
     def post(self, request):
         try:
             serializer = self.get_serializer(data=request.data)
@@ -47,7 +50,7 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR MENU'])
     def patch(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)
@@ -61,7 +64,8 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
             return response.failed('Menu no encontrado', 404)
         except Exception as e:
             return response.failed(e.message,e.status_code)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR MENU'])
     def delete(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)

@@ -79,8 +79,8 @@ class BaseModel(models.Model):
                     elif previousFields['state'] == 0 and newFields['state'] == 1:
                         action = LogActionsEnum.RESTORE.value
                 # get the name of the updated fields divide them by a comma
+                        
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
-
                 super(BaseModel, self).save(*args, **kwargs)
         except Exception as e:
             print(e)

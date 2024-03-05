@@ -18,11 +18,12 @@ class TypeDocumentAV(FilterAndPaginationMixin,GenericAPIView):
     serializer_class = TypeDocumentSerializer
     filterset_class  = TypeDocumentFilter
 
+    @checkPermissions(['ADMINISTRADOR'],['VER TIPO DE DOCUMENTO'])
     def get(self, request, pk=None):
         try:
             if pk:
-                typeDocument = TypeDocument.objects.get(pk=pk)
-                serializer   = TypeDocumentSerializer(typeDocument)
+                typeDocument = self.model.objects.get(pk=pk)
+                serializer   = self.get_serializer(typeDocument)
                 return response.success('Tipo de documento obtenido correctamente', serializer.data)
             else:
                 queryset = self.get_queryset()
@@ -38,21 +39,23 @@ class TypeDocumentAV(FilterAndPaginationMixin,GenericAPIView):
         except Exception as e:
             return response.failed(str(e), 500)
 
+    @checkPermissions(['ADMINISTRADOR'],['CREAR TIPO DE DOCUMENTO'])
     def post(self, request):
         try:
-            serializer = TypeDocumentSerializer(data=request.data)
+            serializer = self.get_serializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return response.success('Tipo de documento creado correctamente', serializer.data)
             else:
-                return response.failed(serializer.errors)
+                return response.failed(serializer.errors[next(iter(serializer.errors))][0],400)
         except Exception as e:
             return response.failed(str(e), 500)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR TIPO DE DOCUMENTO'])
     def patch(self, request, pk=None):
         try:
-            typeDocument = TypeDocument.objects.get(pk=pk)
-            serializer = TypeDocumentSerializer(typeDocument, data=request.data, partial=True)
+            typeDocument = self.model.objects.get(pk=pk)
+            serializer = self.get_serializer(typeDocument, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
                 return response.success('Tipo de documento actualizado correctamente', serializer.data)
@@ -62,10 +65,11 @@ class TypeDocumentAV(FilterAndPaginationMixin,GenericAPIView):
             return response.failed('Tipo de documento no encontrado', 404)
         except Exception as e:
             return response.failed(str(e), 500)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR TIPO DE DOCUMENTO'])
     def delete(self, request, pk=None):
         try:
-            typeDocument       = TypeDocument.objects.get(pk=pk)
+            typeDocument       = self.model.objects.get(pk=pk)
             typeDocument.state = 0
             typeDocument.save()
             return response.success('Tipo de documento eliminado correctamente', None)

@@ -9,6 +9,7 @@ from apps.authentication.api.filters.permission.index import PermissionFilter
 # Utils
 from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
+from apps.base.decorators.checkPermissions import checkPermissions
 
 class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
     
@@ -16,6 +17,7 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
     serializer_class = PermissionSerializer
     filterset_class  = PermissionFilter
 
+    @checkPermissions(['ADMINISTRADOR'],['VER PERMISO'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -35,7 +37,8 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
             return response.failed('Permiso no encontrado', 404)
         except Exception as e:
             return response.failed(e.message,e.status_code)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['CREAR PERMISO'])
     def post(self, request):
         try:
             serializer = PermissionSerializer(data=request.data)
@@ -47,7 +50,7 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR PERMISO'])
     def patch(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)
@@ -61,7 +64,8 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
             return response.failed('Permiso no encontrado', 404)
         except Exception as e:
             return response.failed(e.message,e.status_code)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR PERMISO'])
     def delete(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)

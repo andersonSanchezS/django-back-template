@@ -166,6 +166,10 @@ EMAIL_USE_TLS       = True
 EMAIL_HOST_USER     = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = f'{env("EMAIL_HOST_PASSWORD")}'
 
+# LDAP Settings
+LDAP_HOST=env('LDAP_HOST')
+LDAP_PORT=env('LDAP_PORT')
+
 # S3 settings
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")

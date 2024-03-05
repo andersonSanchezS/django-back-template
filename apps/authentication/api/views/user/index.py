@@ -9,7 +9,7 @@ from apps.authentication.api.filters.user.index import UserFilter
 # Utils
 from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
-
+from apps.base.decorators.checkPermissions import checkPermissions
 
 class UserAV(FilterAndPaginationMixin,GenericAPIView):
 
@@ -17,6 +17,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
     serializer_class = UserSerializer
     filterset_class  = UserFilter
     
+    @checkPermissions(['ADMINISTRADOR'],['VER USUARIO'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -37,7 +38,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
 
-
+    @checkPermissions(['ADMINISTRADOR'],['CREAR USUARIO'])
     def post(self, request):
         try:
             serializer = UserSerializer(data=request.data)
@@ -50,7 +51,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR USUARIO'])
     def patch(self, request, pk=None):
         try:
             user = self.model.objects.get(pk=pk)
@@ -65,7 +66,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR USUARIO'])
     def delete(self, request, pk=None):
         try:
             user = self.model.objects.get(pk=pk)

@@ -35,7 +35,7 @@ class UserSerializer(serializers.ModelSerializer):
             validated_data['username'] = validated_data['first_name'] +'.'+validated_data['last_name'] 
 
             # check if the email has petromil domain next to the @
-            if '@petromil.com' not in validated_data['email']:
+            if '@petromil' not in validated_data['email']:
                 pass
             else:
                 validated_data['is_ldap_user'] = True
@@ -52,6 +52,7 @@ class UserSerializer(serializers.ModelSerializer):
                 
             rolesData = validated_data.pop('roles', None)
             customPermissionsData = validated_data.pop('custom_permissions', None)
+            categoriesData = validated_data.pop('categories', None)
 
             user = Users.objects.create(**validated_data)
             # set the roles 
@@ -63,6 +64,8 @@ class UserSerializer(serializers.ModelSerializer):
             if customPermissionsData:
                 user.custom_permissions.set(customPermissionsData)
 
+            if categoriesData:
+                user.categories.set(categoriesData)
             # send the password to the user
                 
             return user
@@ -75,20 +78,20 @@ class UserSerializer(serializers.ModelSerializer):
             # exclude the roles and custom permissions from the validated data
             rolesData = validated_data.pop('roles', None)
             customPermissionsData = validated_data.pop('custom_permissions', None)
+            categoriesData = validated_data.pop('categories', None)
 
             # update the user
-            for attr, value in validated_data.items():
-                setattr(instance, attr, value)
-            instance.save()
 
-            # set the roles 
             if rolesData:
                 instance.roles.set(rolesData)
 
             if customPermissionsData:
                 instance.custom_permissions.set(customPermissionsData)
 
-            return instance
+            if categoriesData:
+                instance.categories.set(categoriesData)
+
+            return super().update(instance, validated_data)
         except Exception as e:
             raise HTTPException(e.message, e.status_code)
         

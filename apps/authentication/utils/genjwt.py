@@ -4,7 +4,6 @@ from apps.authentication.models import Token
 from datetime import timedelta, datetime as dt
 import jwt
 import ulid
-import environ
 from django.utils import timezone
 from django.conf import settings
 
@@ -17,6 +16,7 @@ def genJwt(user):
                 'first_name'      : user.first_name if user.first_name else '',
                 'last_name'       : user.last_name if user.last_name else '',
                 'role'            : None if user.is_superuser else [{'name': role.description} for role in user.roles.all()],
+                'menus'           : None if user.is_superuser else [{'name': menu.description} for role in user.roles.all() for menu in role.menus.all()],
                 'email'           : user.email if user.email else '',
                 'is_superuser'    : user.is_superuser,
                 'exp'             : timezone.make_aware(dt.utcnow() + timedelta(days=3))

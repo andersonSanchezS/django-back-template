@@ -5,10 +5,11 @@ from django.db.models import Q
 from apps.authentication.models import Users, Token
 # Utils
 from apps.base.utils.index import response
-import environ
 import bcrypt
 from apps.authentication.utils.genjwt import genJwt
-
+from django.conf import settings
+# Ldap toolkit
+from ldap3 import Server, Connection, ALL, SYNC
 
 
 class LoginAV(GenericAPIView):
@@ -21,11 +22,23 @@ class LoginAV(GenericAPIView):
                 # check if the user is active
                 if user.state == 0:
                     return response.failed('Usuario inactivo')
-                # check if the password is correct
-                checkPassword = bcrypt.checkpw(request.data['password'].encode('utf-8'), user.password[2:-1].encode('utf-8'))
                 
-                if checkPassword == False:
-                    return response.failed('Usuario o contraseña incorrectos')
+                if user.is_ldap_user:
+                     # Connect to ldap server
+                    server   = Server(settings.LDAP_HOST, port=int(settings.LDAP_PORT), get_info=ALL)
+                    # Bind to ldap server
+                    instance = Connection(server, version=3, auto_referrals=0, client_strategy=SYNC, lazy=False,
+                                        user=user.email,password=request.data['password'])
+                    bind = instance.bind()
+                    # Check if the user credentials are correct
+                    if bind == False:
+                        return response.success({'error':True, 'message': 'Usuario y/o Contraseña incorrectos'}, 400)
+                else:
+                    # check if the password is correct
+                    checkPassword = bcrypt.checkpw(request.data['password'].encode('utf-8'), user.password[2:-1].encode('utf-8'))
+
+                    if checkPassword == False:
+                        return response.failed('Usuario o contraseña incorrectos')
                 # gen tokens
                 tokens = genJwt(user)
                 return response.success('Inicio de sesión exitoso', { 'access_token': tokens['access_token'], 'refresh_token': tokens['refresh_token'] })

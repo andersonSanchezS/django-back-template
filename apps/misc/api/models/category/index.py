@@ -6,8 +6,8 @@ from apps.base.models import BaseModel, BaseLog
 
 
 class Category(BaseModel):
-
-    description  = models.CharField(max_length=255, blank=False, null=False, unique=True)
+    code         = models.CharField(max_length=10, blank=False, null=False, unique=True,  error_messages={'unique': 'Ya existe una categoría con este código'})
+    description  = models.CharField(max_length=255, blank=False, null=False, unique=True, error_messages={'unique': 'Ya existe una categoría con este nombre'})
 
     class Meta:
         db_table            = 'categories'

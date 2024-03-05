@@ -9,6 +9,7 @@ from apps.authentication.api.filters.role.index import RoleFilter
 # Utils
 from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
+from apps.base.decorators.checkPermissions import checkPermissions
 
 class RoleAV(FilterAndPaginationMixin, GenericAPIView):
 
@@ -16,6 +17,7 @@ class RoleAV(FilterAndPaginationMixin, GenericAPIView):
     serializer_class = RoleSerializer
     filterset_class  = RoleFilter
 
+    @checkPermissions(['ADMINISTRADOR'],['VER ROL'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -36,7 +38,7 @@ class RoleAV(FilterAndPaginationMixin, GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['CREAR ROL'])
     def post(self, request):
         try:
             serializer = RoleSerializer(data=request.data)
@@ -48,7 +50,7 @@ class RoleAV(FilterAndPaginationMixin, GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR ROL'])
     def patch(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)
@@ -63,7 +65,7 @@ class RoleAV(FilterAndPaginationMixin, GenericAPIView):
         except Exception as e:
             return response.failed(e.message,e.status_code)
         
-    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR ROL'])
     def delete(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)

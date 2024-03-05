@@ -17,12 +17,15 @@ class RoleSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         try:
-            permissionsData = validated_data.pop('permissions')
+            permissionsData = validated_data.pop('permissions', None)
+            menusData = validated_data.pop('menus', None)
             role = Role.objects.create(**validated_data)
 
             if permissionsData:
                 role.permissions.set(permissionsData)
-
+            
+            if menusData:
+                role.menus.set(menusData)
             return role
         except Exception as e:
             raise HTTPException(str(e), 400)
@@ -30,7 +33,12 @@ class RoleSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         try:
-            permissionsData = validated_data.pop('permissions')
+            permissionsData = validated_data.pop('permissions', None)
+            menusData = validated_data.pop('menus', None)
+            
+            if menusData:
+                instance.menus.set(menusData)
+
             if permissionsData:
                 instance.permissions.set(permissionsData)
             return super().update(instance, validated_data)

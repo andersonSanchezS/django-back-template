@@ -18,6 +18,7 @@ class CategoryAV(FilterAndPaginationMixin,GenericAPIView):
     serializer_class = CategorySerializer
     filterset_class  = CategoryFilter
 
+    @checkPermissions(['ADMINISTRADOR'],['VER CATEGORÍA'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -38,17 +39,19 @@ class CategoryAV(FilterAndPaginationMixin,GenericAPIView):
         except Exception as e:
             return response.failed(str(e), 500)
 
+    @checkPermissions(['ADMINISTRADOR'],['CREAR CATEGORÍA'])
     def post(self, request):
         try:
             serializer = self.get_serializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return response.success('Categoría creado correctamente', serializer.data)
+                return response.success('Categoría creada correctamente', serializer.data)
             else:
-                return response.failed(serializer.errors)
+                return response.failed(serializer.errors[next(iter(serializer.errors))][0],400)
         except Exception as e:
             return response.failed(str(e), 500)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR CATEGORÍA'])
     def patch(self, request, pk=None):
         try:
             category = self.model.objects.get(pk=pk)
@@ -57,12 +60,13 @@ class CategoryAV(FilterAndPaginationMixin,GenericAPIView):
                 serializer.save()
                 return response.success('Categoría actualizada correctamente', serializer.data)
             else:
-                return response.failed(serializer.errors)
+                return response.failed(serializer.errors[next(iter(serializer.errors))][0],400)
         except self.model.DoesNotExist:
             return response.failed('Categoría no encontrada', 404)
         except Exception as e:
             return response.failed(str(e), 500)
-        
+    
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR CATEGORÍA'])
     def delete(self, request, pk=None):
         try:
             category       = self.model.objects.get(pk=pk)
