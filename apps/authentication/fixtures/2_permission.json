@@ -306,5 +306,49 @@
             "created_at_unix": 1735689600,
             "updated_at_unix": 1735689600
         }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HRAGQT364ZK894NBJX6SX6FD",
+        "fields": {
+            "description": "VER ORGANIZACION DE COMPRA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HRAGQT37MV5F8TPZWZN7HJH8",
+        "fields": {
+            "description": "CREAR ORGANIZACION DE COMPRA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HRAGQT378BT8T4TRPWQECTJ1",
+        "fields": {
+            "description": "ACTUALIZAR ORGANIZACION DE COMPRA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
+    },
+    {
+        "model": "authentication.permission",
+        "pk": "01HRAGQT37T2AN8JVM6VMFVQ9H",
+        "fields": {
+            "description": "ELIMINAR ORGANIZACION DE COMPRA",
+            "created_at": "2024-01-23T00:00:00.000Z",
+            "updated_at": "2024-01-23T00:00:00.000Z",
+            "created_at_unix": 1735689600,
+            "updated_at_unix": 1735689600
+        }
     }
 ]

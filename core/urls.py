@@ -29,4 +29,8 @@ urlpatterns = [
     path(f'{url}misc/', include('apps.misc.api.routes.category.index')),
     # Subcategories
     path(f'{url}misc/', include('apps.misc.api.routes.subCategory.index')),
+
+
+    # Request
+    path(f'{url}request/', include('apps.request.api.routes.purchaseOrganization.index')),
 ]

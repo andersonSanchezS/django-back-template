@@ -1,29 +1,29 @@
 # Rest Framework
 from rest_framework.generics import GenericAPIView
 # Models
-from apps.authentication.models import Permission
+from apps.request.models import PurchaseOrganization
 # Serializers
-from apps.authentication.api.serializers.permission.index import PermissionSerializer
+from apps.request.api.serializers.purchaseOrganization.index import PurchaseOrganizationSerializer
 # Filters
-from apps.authentication.api.filters.permission.index import PermissionFilter
+from apps.request.api.filters.purchaseOrganization.index import PurchaseOrganizationFilter
 # Utils
 from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
 from apps.base.decorators.checkPermissions import checkPermissions
 
-class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
+class PurchaseOrganizationAV(FilterAndPaginationMixin, GenericAPIView):
     
-    model            = Permission
-    serializer_class = PermissionSerializer
-    filterset_class  = PermissionFilter
+    model            = PurchaseOrganization
+    serializer_class = PurchaseOrganizationSerializer
+    filterset_class  = PurchaseOrganizationFilter
 
-    @checkPermissions(['ADMINISTRADOR'],['VER PERMISO'])
+    @checkPermissions(['ADMINISTRADOR'],['VER ORGANIZACION DE COMPRA'])
     def get(self, request, pk=None):
         try:
             if pk:
                 data = self.model.objects.get(pk=pk)
                 serializer   = self.get_serializer(data)
-                return response.success('Permiso obtenido correctamente', serializer.data)
+                return response.success('Organizacion de compra obtenida correctamente', serializer.data)
             else:
                 queryset = self.get_queryset()
                 if request.query_params.get('paginate') == 'true':
@@ -32,47 +32,47 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
                     return self.get_paginated_response(serializer.data)
                 else:
                     serializer = self.get_serializer(queryset, many=True)
-                    return response.success('Permisos obtenidos correctamente', serializer.data)
+                    return response.success('Organizaciones de compras obtenidas correctamente', serializer.data)
         except self.model.DoesNotExist:
-            return response.failed('Permiso no encontrado', 404)
+            return response.failed('Organizacion de compra no encontrada', 404)
         except Exception as e:
             return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
-    @checkPermissions(['ADMINISTRADOR'],['CREAR PERMISO'])
+    @checkPermissions(['ADMINISTRADOR'],['CREAR ORGANIZACION DE COMPRA'])
     def post(self, request):
         try:
             serializer = self.get_serializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return response.success('Permiso creado exitosamente', serializer.data)
+                return response.success('Organizacion de compra creada exitosamente', serializer.data)
             else:
                 return response.failed(serializer.errors[next(iter(serializer.errors))][0], 400)
         except Exception as e:
             return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
         
-    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR PERMISO'])
+    @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR ORGANIZACION DE COMPRA'])
     def patch(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)
             serializer = self.get_serializer(data, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
-                return response.success('Permiso actualizado exitosamente', serializer.data)
+                return response.success('Organizacion de compra actualizada exitosamente', serializer.data)
             else:
                 return response.failed(serializer.errors[next(iter(serializer.errors))][0], 400)
         except self.model.DoesNotExist:
-            return response.failed('Permiso no encontrado', 404)
+            return response.failed('Organizacion de compra no encontrada', 404)
         except Exception as e:
             return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
-    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR PERMISO'])
+    @checkPermissions(['ADMINISTRADOR'],['ELIMINAR ORGANIZACION DE COMPRA'])
     def delete(self, request, pk=None):
         try:
             data = self.model.objects.get(pk=pk)
             data.state = 0
             data.save()
-            return response.success('Permiso eliminado exitosamente')
+            return response.success('Organizacion de compra eliminada exitosamente')
         except self.model.DoesNotExist:
-            return response.failed('Permiso no encontrado', 404)
+            return response.failed('Organizacion de compra no encontrada', 404)
         except Exception as e:
             return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
