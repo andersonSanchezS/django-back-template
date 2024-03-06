@@ -1,354 +1,398 @@
 [
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3C7GGTHTMZPZ3GF4K4",
-        "fields": {
-            "description": "VER USUARIO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3C46E4RKHHPZZZ28B3",
-        "fields": {
-            "description": "CREAR USUARIO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3CY5ND01SHKE54SP2K",
-        "fields": {
-            "description": "ACTUALIZAR USUARIO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3C17EY1M1F0WPB0V48",
-        "fields": {
-            "description": "ELIMINAR USUARIO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3CJ1PQXFVJJQ2EGHXK",
-        "fields": {
-            "description": "VER ROL",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3DT0AR0YYPSC9N0EP5",
-        "fields": {
-            "description": "CREAR ROL",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3DHAES2R5X2PSP2HQQ",
-        "fields": {
-            "description": "ACTUALIZAR ROL",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3DWZ24JNCEMTADQSW2",
-        "fields": {
-            "description": "ELIMINAR ROL",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3DNNRBV3PMKFFA9TNT",
-        "fields": {
-            "description": "VER PERMISO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXGXV3DBYAK60BY7V6KV3SS",
-        "fields": {
-            "description": "CREAR PERMISO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXH85JM8DS8HKFWV2QDS4XJ",
-        "fields": {
-            "description": "ACTUALIZAR PERMISO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HNXH85JMHQFH62N9FGPTCHY4",
-        "fields": {
-            "description": "ELIMINAR PERMISO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6R5YJ9JV3QTE01PS43X6FX",
-        "fields": {
-            "description": "VER MENU",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6R5YJ9NG30EVWYQ1QH9GKH",
-        "fields": {
-            "description": "CREAR MENU",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6R5YJ97QHHY7VWX4N2TSK2",
-        "fields": {
-            "description": "ACTUALIZAR MENU",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6R5YJ896QGFK4M8W5HJ65C",
-        "fields": {
-            "description": "ELIMINAR MENU",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XKXCWQ71DEKP9SY83Y",
-        "fields": {
-            "description": "VER TIPO DE DOCUMENTO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJJNA47GQQHEV623GE",
-        "fields": {
-            "description": "CREAR TIPO DE DOCUMENTO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJTSDZ8V9SQ5RKXXVD",
-        "fields": {
-            "description": "ACTUALIZAR TIPO DE DOCUMENTO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJD509E48K0KH8J786",
-        "fields": {
-            "description": "ELIMINAR TIPO DE DOCUMENTO",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJD509E48K0KH8J786",
-        "fields": {
-            "description": "VER CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJD509E48K0KH8J786",
-        "fields": {
-            "description": "CREAR CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJD509E48K0KH8J786",
-        "fields": {
-            "description": "ACTUALIZAR CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HQ6RB3XJD509E48K0KH8J786",
-        "fields": {
-            "description": "ELIMINAR CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HR80NDAZPD7MC06SVZ2021DK",
-        "fields": {
-            "description": "VER SUB CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HR80NDB0Y6KHZJZ5DJPMBCNB",
-        "fields": {
-            "description": "CREAR SUB CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HR80NDB0828S1T75Y2MYY3JF",
-        "fields": {
-            "description": "ACTUALIZAR SUB CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HR80NDB1B2EW13S5NV498VE4",
-        "fields": {
-            "description": "ELIMINAR SUB CATEGORÍA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HRAGQT364ZK894NBJX6SX6FD",
-        "fields": {
-            "description": "VER ORGANIZACION DE COMPRA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HRAGQT37MV5F8TPZWZN7HJH8",
-        "fields": {
-            "description": "CREAR ORGANIZACION DE COMPRA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HRAGQT378BT8T4TRPWQECTJ1",
-        "fields": {
-            "description": "ACTUALIZAR ORGANIZACION DE COMPRA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
-    },
-    {
-        "model": "authentication.permission",
-        "pk": "01HRAGQT37T2AN8JVM6VMFVQ9H",
-        "fields": {
-            "description": "ELIMINAR ORGANIZACION DE COMPRA",
-            "created_at": "2024-01-23T00:00:00.000Z",
-            "updated_at": "2024-01-23T00:00:00.000Z",
-            "created_at_unix": 1735689600,
-            "updated_at_unix": 1735689600
-        }
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3C7GGTHTMZPZ3GF4K4",
+    "fields": {
+      "description": "VER USUARIO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
     }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3C46E4RKHHPZZZ28B3",
+    "fields": {
+      "description": "CREAR USUARIO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3CY5ND01SHKE54SP2K",
+    "fields": {
+      "description": "ACTUALIZAR USUARIO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3C17EY1M1F0WPB0V48",
+    "fields": {
+      "description": "ELIMINAR USUARIO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3CJ1PQXFVJJQ2EGHXK",
+    "fields": {
+      "description": "VER ROL",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3DT0AR0YYPSC9N0EP5",
+    "fields": {
+      "description": "CREAR ROL",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3DHAES2R5X2PSP2HQQ",
+    "fields": {
+      "description": "ACTUALIZAR ROL",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3DWZ24JNCEMTADQSW2",
+    "fields": {
+      "description": "ELIMINAR ROL",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3DNNRBV3PMKFFA9TNT",
+    "fields": {
+      "description": "VER PERMISO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXGXV3DBYAK60BY7V6KV3SS",
+    "fields": {
+      "description": "CREAR PERMISO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXH85JM8DS8HKFWV2QDS4XJ",
+    "fields": {
+      "description": "ACTUALIZAR PERMISO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HNXH85JMHQFH62N9FGPTCHY4",
+    "fields": {
+      "description": "ELIMINAR PERMISO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6R5YJ9JV3QTE01PS43X6FX",
+    "fields": {
+      "description": "VER MENU",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6R5YJ9NG30EVWYQ1QH9GKH",
+    "fields": {
+      "description": "CREAR MENU",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6R5YJ97QHHY7VWX4N2TSK2",
+    "fields": {
+      "description": "ACTUALIZAR MENU",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6R5YJ896QGFK4M8W5HJ65C",
+    "fields": {
+      "description": "ELIMINAR MENU",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XKXCWQ71DEKP9SY83Y",
+    "fields": {
+      "description": "VER TIPO DE DOCUMENTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJJNA47GQQHEV623GE",
+    "fields": {
+      "description": "CREAR TIPO DE DOCUMENTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJTSDZ8V9SQ5RKXXVD",
+    "fields": {
+      "description": "ACTUALIZAR TIPO DE DOCUMENTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJD509E48K0KH8J786",
+    "fields": {
+      "description": "ELIMINAR TIPO DE DOCUMENTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJD509E48K0KH8J786",
+    "fields": {
+      "description": "VER CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJD509E48K0KH8J786",
+    "fields": {
+      "description": "CREAR CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJD509E48K0KH8J786",
+    "fields": {
+      "description": "ACTUALIZAR CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HQ6RB3XJD509E48K0KH8J786",
+    "fields": {
+      "description": "ELIMINAR CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HR80NDAZPD7MC06SVZ2021DK",
+    "fields": {
+      "description": "VER SUB CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HR80NDB0Y6KHZJZ5DJPMBCNB",
+    "fields": {
+      "description": "CREAR SUB CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HR80NDB0828S1T75Y2MYY3JF",
+    "fields": {
+      "description": "ACTUALIZAR SUB CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HR80NDB1B2EW13S5NV498VE4",
+    "fields": {
+      "description": "ELIMINAR SUB CATEGORÍA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRAGQT364ZK894NBJX6SX6FD",
+    "fields": {
+      "description": "VER ORGANIZACION DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRAGQT37MV5F8TPZWZN7HJH8",
+    "fields": {
+      "description": "CREAR ORGANIZACION DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRAGQT378BT8T4TRPWQECTJ1",
+    "fields": {
+      "description": "ACTUALIZAR ORGANIZACION DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRAGQT37T2AN8JVM6VMFVQ9H",
+    "fields": {
+      "description": "ELIMINAR ORGANIZACION DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRANXYW2BGJSX5RX19RWH9QN",
+    "fields": {
+      "description": "VER CENTRO LOGÍSTICO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRANXYW3H1XDGNHDDC6VHD8R",
+    "fields": {
+      "description": "CREAR CENTRO LOGÍSTICO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRANXYW37Z9KZN8KY8KA0ME6",
+    "fields": {
+      "description": "ACTUALIZAR CENTRO LOGÍSTICO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRANXYW3DN572VF537Y6GRJP",
+    "fields": {
+      "description": "ELIMINAR CENTRO LOGÍSTICO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  }
 ]
