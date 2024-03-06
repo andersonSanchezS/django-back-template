@@ -1,6 +1,6 @@
 from rest_framework.views import exception_handler
 from rest_framework.response import Response
-
+import ast
 
 def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
@@ -14,6 +14,13 @@ def custom_exception_handler(exc, context):
 
 
 class HTTPException(Exception):
+
     def __init__(self, message, status_code):
-        self.message = message
-        self.status_code = status_code
+        try:
+            parsedMessage    = ast.literal_eval(message)
+            self.message     = parsedMessage[0]
+            self.status_code = parsedMessage[1]
+            
+        except :
+            self.message     = message
+            self.status_code = status_code

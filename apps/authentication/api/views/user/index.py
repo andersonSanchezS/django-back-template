@@ -36,7 +36,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Users.DoesNotExist:
             return response.failed('Usuario no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
 
     @checkPermissions(['ADMINISTRADOR'],['CREAR USUARIO'])
     def post(self, request):
@@ -46,10 +46,9 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
                 serializer.save()
                 return response.success('Usuario creado exitosamente', serializer.data)
             else:
-                print(serializer.errors)
                 return response.failed(serializer.errors[next(iter(serializer.errors))][0], 400)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
         
     @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR USUARIO'])
     def patch(self, request, pk=None):
@@ -64,7 +63,7 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Users.DoesNotExist:
             return response.failed('Usuario no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
         
     @checkPermissions(['ADMINISTRADOR'],['ELIMINAR USUARIO'])
     def delete(self, request, pk=None):
@@ -76,4 +75,4 @@ class UserAV(FilterAndPaginationMixin,GenericAPIView):
         except Users.DoesNotExist:
             return response.failed('Usuario no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)

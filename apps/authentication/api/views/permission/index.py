@@ -36,7 +36,7 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
         except Permission.DoesNotExist:
             return response.failed('Permiso no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
     @checkPermissions(['ADMINISTRADOR'],['CREAR PERMISO'])
     def post(self, request):
@@ -48,7 +48,7 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
             else:
                 return response.failed(serializer.errors[next(iter(serializer.errors))][0], 400)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
         
     @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR PERMISO'])
     def patch(self, request, pk=None):
@@ -63,7 +63,7 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
         except Permission.DoesNotExist:
             return response.failed('Permiso no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
     @checkPermissions(['ADMINISTRADOR'],['ELIMINAR PERMISO'])
     def delete(self, request, pk=None):
@@ -75,4 +75,4 @@ class PermissionAV(FilterAndPaginationMixin, GenericAPIView):
         except Permission.DoesNotExist:
             return response.failed('Permiso no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)

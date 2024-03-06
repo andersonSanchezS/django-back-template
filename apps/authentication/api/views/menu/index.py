@@ -36,7 +36,7 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
         except self.model.DoesNotExist:
             return response.failed('Menu no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
     @checkPermissions(['ADMINISTRADOR'],['CREAR MENU'])
     def post(self, request):
@@ -48,7 +48,7 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
             else:
                 return response.failed(serializer.errors[next(iter(serializer.errors))][0], 400)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
         
     @checkPermissions(['ADMINISTRADOR'],['ACTUALIZAR MENU'])
     def patch(self, request, pk=None):
@@ -63,7 +63,7 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
         except self.model.DoesNotExist:
             return response.failed('Menu no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)
     
     @checkPermissions(['ADMINISTRADOR'],['ELIMINAR MENU'])
     def delete(self, request, pk=None):
@@ -75,4 +75,4 @@ class MenuAV(FilterAndPaginationMixin, GenericAPIView):
         except self.model.DoesNotExist:
             return response.failed('Menu no encontrado', 404)
         except Exception as e:
-            return response.failed(e.message,e.status_code)
+            return response.failed(e.message if hasattr(e, 'message') else str(e), e.status_code if hasattr(e, 'status_code') else 500)

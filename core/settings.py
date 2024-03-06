@@ -38,7 +38,7 @@ THOUSAND_SEPARATOR     = "."
 BASE_APPS        = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
                     'django.contrib.messages','django.contrib.staticfiles','django.contrib.humanize']
 
-LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc']
+LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc','apps.request']
 
 THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab']
 
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'apps.base.middlewares.exceptionMiddleware.ExceptionMiddleware'
     ]
 
 ROOT_URLCONF = 'core.urls'
@@ -153,7 +154,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES'    : [],
     'DEFAULT_FILTER_BACKENDS'       : ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS'      : 'rest_framework.pagination.PageNumberPagination',
-    'EXCEPTION_HANDLER'             : ['apps.base.exceptions.custom_exception_handler'],
+    'EXCEPTION_HANDLER'             : ['pps.base.exceptions.custom_exception_handler'],
     'PAGE_SIZE': 30,
 }
 

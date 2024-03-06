@@ -6,7 +6,7 @@ from django.db import transaction
 # Utils
 from apps.base.utils.index import genPassword
 import random
-
+from apps.authentication.enums import RoleEnum
 import bcrypt
 # Exceptions
 from apps.base.exceptions import HTTPException
@@ -54,6 +54,13 @@ class UserSerializer(serializers.ModelSerializer):
             customPermissionsData = validated_data.pop('custom_permissions', None)
             categoriesData = validated_data.pop('categories', None)
 
+            # check if the role are different from administrador
+            if not rolesData:
+                raise HTTPException('El rol es requerido', 400)
+            
+            if RoleEnum.ADMINISTRADOR.value and RoleEnum.SUPERVISOR.value not in rolesData and len(categoriesData) == 0:
+                raise HTTPException('Los usuarios con este rol requieren categorías', 400)
+            
             user = Users.objects.create(**validated_data)
             # set the roles 
             if rolesData:
