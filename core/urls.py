@@ -41,4 +41,6 @@ urlpatterns = [
     path(f'{url}request/', include('apps.request.api.routes.shoppingGroup.index')),
     # Cost centers
     path(f'{url}request/', include('apps.request.api.routes.costCenter.index')),
+    # Solcot types
+    path(f'{url}request/', include('apps.request.api.routes.solcotType.index')),
 ]

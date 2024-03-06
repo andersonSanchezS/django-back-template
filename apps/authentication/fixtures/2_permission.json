@@ -394,5 +394,137 @@
       "created_at_unix": 1735689600,
       "updated_at_unix": 1735689600
     }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARH3GBGD0TQNSWF9DXX4R4",
+    "fields": {
+      "description": "VER CENTRO DE COSTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARH3GBWMZ0R6A749HDEBEW",
+    "fields": {
+      "description": "CREAR CENTRO DE COSTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARH3GB1PN5AA89KE4D924S",
+    "fields": {
+      "description": "ACTUALIZAR CENTRO DE COSTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARH3GC569WTH3STWV4MA0D",
+    "fields": {
+      "description": "ELIMINAR CENTRO DE COSTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARM1ZY168XRQD3EFV3EYN1",
+    "fields": {
+      "description": "VER GRUPO DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARM1ZYGC861FJWK515MWVB",
+    "fields": {
+      "description": "CREAR GRUPO DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARM1ZZ17CA79XYZ7M1TPRF",
+    "fields": {
+      "description": "ACTUALIZAR GRUPO DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARM1ZZMZKKV7KBXRFD2PVB",
+    "fields": {
+      "description": "ELIMINAR GRUPO DE COMPRA",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARPKDYPMB9GF51YN27FSHA",
+    "fields": {
+      "description": "VER TIPO DE SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARPKDYZ5E393C3NZN3HA9K",
+    "fields": {
+      "description": "CREAR TIPO DE SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARPKDYNPN9F60Z96CCDJPG",
+    "fields": {
+      "description": "ACTUALIZAR TIPO DE SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRARPKDYF2GS2MG57BSC1364",
+    "fields": {
+      "description": "ELIMINAR TIPO DE SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
   }
 ]
