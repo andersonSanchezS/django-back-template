@@ -4,6 +4,7 @@ from apps.base.filters import SubstringFilter
 
 class TypeDocumentFilter(django_filters.FilterSet):
     description = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     class Meta:
         model  = TypeDocument
-        fields = ['description']
+        fields = ['description', 'state']

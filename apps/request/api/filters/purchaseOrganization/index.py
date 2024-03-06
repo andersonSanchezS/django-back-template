@@ -6,7 +6,8 @@ class PurchaseOrganizationFilter(django_filters.FilterSet):
 
     description = SubstringFilter()
     code        = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     
     class Meta:
         model  = PurchaseOrganization
-        fields = ['description', 'code']
+        fields = ['description', 'code', 'state']

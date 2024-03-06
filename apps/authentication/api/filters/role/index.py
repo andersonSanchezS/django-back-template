@@ -5,7 +5,8 @@ from apps.base.filters import SubstringFilter
 class RoleFilter(django_filters.FilterSet):
 
     description = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     
     class Meta:
         model  = Role
-        fields = ['description']
+        fields = ['description', 'state']

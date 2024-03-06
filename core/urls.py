@@ -39,4 +39,6 @@ urlpatterns = [
     path(f'{url}request/', include('apps.request.api.routes.logisticCenter.index')),
     # Shopping groups
     path(f'{url}request/', include('apps.request.api.routes.shoppingGroup.index')),
+    # Cost centers
+    path(f'{url}request/', include('apps.request.api.routes.costCenter.index')),
 ]

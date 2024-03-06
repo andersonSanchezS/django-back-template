@@ -5,7 +5,8 @@ from apps.base.filters import SubstringFilter
 class PermissionFilter(django_filters.FilterSet):
 
     description = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     
     class Meta:
         model  = Permission
-        fields = ['description']
+        fields = ['description', 'state']

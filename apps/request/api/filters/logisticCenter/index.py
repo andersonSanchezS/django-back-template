@@ -6,7 +6,8 @@ class LogisticCenterFilter(django_filters.FilterSet):
 
     description = SubstringFilter()
     code        = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     
     class Meta:
         model  = LogisticCenter
-        fields = ['description', 'code']
+        fields = ['description', 'code', 'state']

@@ -1,12 +1,13 @@
 import django_filters
-from   apps.misc.models import Category
-from apps.base.filters import SubstringFilter
+from   apps.request.models import CostCenter
+from apps.base.filters     import SubstringFilter
 
-class CategoryFilter(django_filters.FilterSet):
+class CostCenterFilter(django_filters.FilterSet):
+
     description = SubstringFilter()
     code        = SubstringFilter()
     state       = django_filters.BooleanFilter()
-
+    
     class Meta:
-        model  = Category
+        model  = CostCenter
         fields = ['description', 'code', 'state']

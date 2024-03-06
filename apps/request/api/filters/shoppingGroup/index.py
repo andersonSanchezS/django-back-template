@@ -6,7 +6,8 @@ class ShoppingGroupFilter(django_filters.FilterSet):
 
     description = SubstringFilter()
     code        = SubstringFilter()
+    state       = django_filters.BooleanFilter()
     
     class Meta:
         model  = ShoppingGroup
-        fields = ['description', 'code']
+        fields = ['description', 'code', 'state']
