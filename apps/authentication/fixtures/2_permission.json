@@ -526,5 +526,49 @@
       "created_at_unix": 1735689600,
       "updated_at_unix": 1735689600
     }
-  }
+  },
+    {
+      "model": "authentication.permission",
+      "pk": "01HRATZDP9QTJJX59WND4KRTVX",
+      "fields": {
+        "description": "VER IMPUESTO",
+        "created_at": "2024-01-23T00:00:00.000Z",
+        "updated_at": "2024-01-23T00:00:00.000Z",
+        "created_at_unix": 1735689600,
+        "updated_at_unix": 1735689600
+      }
+    },
+    {
+      "model": "authentication.permission",
+      "pk": "01HRATZDPAX2YP6M8NVFZCNH20",
+      "fields": {
+        "description": "CREAR IMPUESTO",
+        "created_at": "2024-01-23T00:00:00.000Z",
+        "updated_at": "2024-01-23T00:00:00.000Z",
+        "created_at_unix": 1735689600,
+        "updated_at_unix": 1735689600
+      }
+    },
+    {
+      "model": "authentication.permission",
+      "pk": "01HRATZDPAZWNRBB225XYF84E4",
+      "fields": {
+        "description": "ACTUALIZAR IMPUESTO",
+        "created_at": "2024-01-23T00:00:00.000Z",
+        "updated_at": "2024-01-23T00:00:00.000Z",
+        "created_at_unix": 1735689600,
+        "updated_at_unix": 1735689600
+      }
+    },
+    {
+      "model": "authentication.permission",
+      "pk": "01HRATZDPAFNGQYX731FF7JPC6",
+      "fields": {
+        "description": "ELIMINAR IMPUESTO",
+        "created_at": "2024-01-23T00:00:00.000Z",
+        "updated_at": "2024-01-23T00:00:00.000Z",
+        "created_at_unix": 1735689600,
+        "updated_at_unix": 1735689600
+      }
+    }
 ]
