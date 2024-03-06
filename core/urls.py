@@ -32,5 +32,9 @@ urlpatterns = [
 
 
     # Request
+
+    # Purchase organizations
     path(f'{url}request/', include('apps.request.api.routes.purchaseOrganization.index')),
+    # Logistic centers
+    path(f'{url}request/', include('apps.request.api.routes.logisticCenter.index')),
 ]

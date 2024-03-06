@@ -1,15 +1,15 @@
 # Rest Framework
 from rest_framework import serializers
 # Models
-from apps.request.models import PurchaseOrganization
+from apps.request.models import LogisticCenter
 from django.db import transaction
 # Exceptions
 from apps.base.exceptions import HTTPException
 
-class PurchaseOrganizationSerializer(serializers.ModelSerializer):
+class LogisticCenterSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = PurchaseOrganization
+        model = LogisticCenter
         fields = '__all__'
         extra_kwargs = {"description": { "error_messages": { "required": "La descripción es requerida" } },
                         "code"       : { "error_messages": { "max_length": "La longitud maxima del código es de 10 caracteres" } } }
@@ -18,8 +18,8 @@ class PurchaseOrganizationSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         try:
-            purchaseOrganization = PurchaseOrganization.objects.create(**validated_data)
-            return purchaseOrganization
+            logisticCenter = LogisticCenter.objects.create(**validated_data)
+            return logisticCenter
         except Exception as e:
             raise HTTPException(str(e), 400)
         

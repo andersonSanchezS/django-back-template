@@ -9,4 +9,4 @@ class PurchaseOrganizationFilter(django_filters.FilterSet):
     
     class Meta:
         model  = PurchaseOrganization
-        fields = ['description']
+        fields = ['description', 'code']
