@@ -6,3 +6,4 @@ from apps.request.api.models.solcotType.index           import SolcotType, Solco
 from apps.request.api.models.tax.index                  import Tax, TaxLog
 from apps.request.api.models.supraSolcot.index          import SupraSolcot, SupraSolcotLog
 from apps.request.api.models.solcot.index               import Solcot, SolcotLog
+from apps.request.api.models.observation.index          import Observation, ObservationLog

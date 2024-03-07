@@ -45,4 +45,6 @@ urlpatterns = [
     path(f'{url}request/', include('apps.request.api.routes.solcotType.index')),
     # Taxes
     path(f'{url}request/', include('apps.request.api.routes.tax.index')),
+    # Supra solcot
+    path(f'{url}request/', include('apps.request.api.routes.supraSolcot.index')),
 ]

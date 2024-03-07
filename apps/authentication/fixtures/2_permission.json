@@ -527,48 +527,180 @@
       "updated_at_unix": 1735689600
     }
   },
-    {
-      "model": "authentication.permission",
-      "pk": "01HRATZDP9QTJJX59WND4KRTVX",
-      "fields": {
-        "description": "VER IMPUESTO",
-        "created_at": "2024-01-23T00:00:00.000Z",
-        "updated_at": "2024-01-23T00:00:00.000Z",
-        "created_at_unix": 1735689600,
-        "updated_at_unix": 1735689600
-      }
-    },
-    {
-      "model": "authentication.permission",
-      "pk": "01HRATZDPAX2YP6M8NVFZCNH20",
-      "fields": {
-        "description": "CREAR IMPUESTO",
-        "created_at": "2024-01-23T00:00:00.000Z",
-        "updated_at": "2024-01-23T00:00:00.000Z",
-        "created_at_unix": 1735689600,
-        "updated_at_unix": 1735689600
-      }
-    },
-    {
-      "model": "authentication.permission",
-      "pk": "01HRATZDPAZWNRBB225XYF84E4",
-      "fields": {
-        "description": "ACTUALIZAR IMPUESTO",
-        "created_at": "2024-01-23T00:00:00.000Z",
-        "updated_at": "2024-01-23T00:00:00.000Z",
-        "created_at_unix": 1735689600,
-        "updated_at_unix": 1735689600
-      }
-    },
-    {
-      "model": "authentication.permission",
-      "pk": "01HRATZDPAFNGQYX731FF7JPC6",
-      "fields": {
-        "description": "ELIMINAR IMPUESTO",
-        "created_at": "2024-01-23T00:00:00.000Z",
-        "updated_at": "2024-01-23T00:00:00.000Z",
-        "created_at_unix": 1735689600,
-        "updated_at_unix": 1735689600
-      }
+  {
+    "model": "authentication.permission",
+    "pk": "01HRATZDP9QTJJX59WND4KRTVX",
+    "fields": {
+      "description": "VER IMPUESTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
     }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRATZDPAX2YP6M8NVFZCNH20",
+    "fields": {
+      "description": "CREAR IMPUESTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRATZDPAZWNRBB225XYF84E4",
+    "fields": {
+      "description": "ACTUALIZAR IMPUESTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRATZDPAFNGQYX731FF7JPC6",
+    "fields": {
+      "description": "ELIMINAR IMPUESTO",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTA3639G4R0PY85AQBHZX7",
+    "fields": {
+      "description": "VER SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTA3646KEQ6T8VGPVMJW0C",
+    "fields": {
+      "description": "CREAR SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTA364EBQ6PY525XMBF8QC",
+    "fields": {
+      "description": "ACTUALIZAR SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTA3648KYEY2NH77HDW71S",
+    "fields": {
+      "description": "ELIMINAR SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTBZ7DWRBDHJYK0NXRNN36",
+    "fields": {
+      "description": "VER SUPRA SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTBZ7DB9WR1YFSETVP0V0H",
+    "fields": {
+      "description": "CREAR SUPRA SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTBZ7DAQD9PYDA16WHT6QT",
+    "fields": {
+      "description": "ACTUALIZAR SUPRA SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTBZ7EQA7HFGSEN2RBN17G",
+    "fields": {
+      "description": "ELIMINAR SUPRA SOLCOT",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTDS8GQDJS40WWS0W3GG1H",
+    "fields": {
+      "description": "VER OBSERVACION",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTDS8GZTDJDEYJ5ZNC9WEC",
+    "fields": {
+      "description": "CREAR OBSERVACION",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTDS8GYKVBT74ZV4Y87WHN",
+    "fields": {
+      "description": "ACTUALIZAR OBSERVACION",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  },
+  {
+    "model": "authentication.permission",
+    "pk": "01HRCTDS8HMYJT980MRJMCXA5C",
+    "fields": {
+      "description": "ELIMINAR OBSERVACION",
+      "created_at": "2024-01-23T00:00:00.000Z",
+      "updated_at": "2024-01-23T00:00:00.000Z",
+      "created_at_unix": 1735689600,
+      "updated_at_unix": 1735689600
+    }
+  }
 ]

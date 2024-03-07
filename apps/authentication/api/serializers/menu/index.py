@@ -13,7 +13,7 @@ class MenuSerializer(serializers.ModelSerializer):
         fields = '__all__'
         extra_kwargs = {
             "description": { "error_messages": { "required": "La descripción es requerida" } },
-             "icon": { "error_messages": { "required": "El icono es requerido" } }
+            "icon"       : { "error_messages": { "required": "El icono es requerido" } }
         }
 
     

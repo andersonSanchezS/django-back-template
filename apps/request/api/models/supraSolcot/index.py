@@ -18,6 +18,7 @@ class SupraSolcot(BaseModel):
     shopping_group        = models.ForeignKey('request.shoppingGroup', on_delete=models.CASCADE)
     purchase_organization = models.ForeignKey('request.purchaseOrganization', on_delete=models.CASCADE)
     category              = models.ForeignKey('misc.category', on_delete=models.CASCADE)
+    client                = models.ForeignKey('authentication.users', on_delete=models.CASCADE, related_name='supra_solcot_client')
 
 
     class Meta:

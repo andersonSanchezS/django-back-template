@@ -6,6 +6,9 @@ from   django.core     import serializers
 import ulid
 import time
 import json
+# Exceptions
+from apps.base.exceptions import HTTPException
+
 class BaseLog(models.Model):
     action_time    = models.DateTimeField(auto_now=True)
     user           = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
@@ -83,7 +86,7 @@ class BaseModel(models.Model):
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
                 super(BaseModel, self).save(*args, **kwargs)
         except Exception as e:
-            print(e)
+            raise HTTPException(str(e), 500)
         
 
 class RequestLog(models.Model):

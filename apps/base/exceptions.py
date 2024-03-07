@@ -18,8 +18,13 @@ class HTTPException(Exception):
     def __init__(self, message, status_code):
         try:
             parsedMessage    = ast.literal_eval(message)
-            self.message     = parsedMessage[0]
-            self.status_code = parsedMessage[1]
+            # if the message isn't a tuple sent a 500 status code
+            if not isinstance(parsedMessage, tuple):
+                self.message     = parsedMessage
+                self.status_code = 500
+            else:
+                self.message     = parsedMessage[0]
+                self.status_code = parsedMessage[1]
             
         except :
             self.message     = message
