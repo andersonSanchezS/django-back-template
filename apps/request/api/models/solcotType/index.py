@@ -7,7 +7,7 @@ from apps.base.models import BaseModel, BaseLog
 
 class SolcotType(BaseModel):
     description  = models.CharField(max_length=255, blank=False, null=False, unique=True, error_messages={'unique': 'Ya existe un tipo de solcot con este nombre'})
-    days         = models.IntegerField(blank=False, null=False)
+    days         = models.IntegerField(blank=True, null=True)
     
     class Meta:
         db_table            = 'solcot_types'
