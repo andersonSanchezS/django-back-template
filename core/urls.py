@@ -29,6 +29,8 @@ urlpatterns = [
     path(f'{url}misc/', include('apps.misc.api.routes.category.index')),
     # Subcategories
     path(f'{url}misc/', include('apps.misc.api.routes.subCategory.index')),
+    # Holydays
+    path(f'{url}misc/', include('apps.misc.api.routes.holyday.index')),
 
 
     # Request

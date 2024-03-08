@@ -49,3 +49,4 @@ django-cacheops
 django-crontab
 bcrypt
 django-model-utils
+workalendar
