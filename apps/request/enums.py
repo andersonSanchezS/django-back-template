@@ -34,4 +34,4 @@ class SolcotTypeEnum(Enum):
 class SolcotStructureEnum(Enum):
     BASE = ["product", "quantity", "measurementUnit", "budget", "limit_date", 
             "contract_manager", "specification", "description", "is_unique_provider",
-            "is_visit_required", "sub_category", "files",]
+            "is_visit_required", "sub_categories", "files",]

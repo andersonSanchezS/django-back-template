@@ -6,9 +6,12 @@ from   django.core     import serializers
 import ulid
 import time
 import json
+from django.core.cache import cache
 # Exceptions
 from apps.base.exceptions import HTTPException
 
+# 
+# BASE MODEL FOR ALL LOGS
 class BaseLog(models.Model):
     action_time    = models.DateTimeField(auto_now=True)
     user           = models.ForeignKey('authentication.Users', on_delete=models.CASCADE)
@@ -19,7 +22,7 @@ class BaseLog(models.Model):
     class Meta:
         abstract = True
 
-
+# BASE MODEL FOR ALL ENTITIES 
 class BaseModel(models.Model):
     id              = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
     state           = models.BooleanField(default=True)
@@ -72,23 +75,19 @@ class BaseModel(models.Model):
                 # compare the new data with the previous data and get the fields that have changed
                 newFields = {k:v for k,v in fields.items() if getattr(previousData, k) != v}
                 # based on the new data get the fields that have changed and get the previous value
-                previousFields = {k:getattr(previousData, k) for k,v in newFields.items()}
-                # check for the many to many fields
-                
+                previousFields = {k:getattr(previousData, k) for k,v in newFields.items()}                
                 # compare the state of the previous data with the new data
                 if 'state' in previousFields and 'state' in newFields:
                     if previousFields['state'] == 1 and newFields['state'] == 0:
                         action = LogActionsEnum.DELETE.value
                     elif previousFields['state'] == 0 and newFields['state'] == 1:
                         action = LogActionsEnum.RESTORE.value
-                # get the name of the updated fields divide them by a comma
-                        
                 model.objects.create( action_time=dt.now(), user=user, action=action, newValues=newFields, previousValues=previousFields, **logRelation)
                 super(BaseModel, self).save(*args, **kwargs)
         except Exception as e:
             raise HTTPException(str(e), 500)
         
-
+# BASE MODEL FOR ALL REQUEST LOGS
 class RequestLog(models.Model):
     ip           = models.CharField(max_length=255)
     method       = models.CharField(max_length=255)
@@ -102,3 +101,34 @@ class RequestLog(models.Model):
         db_table            = 'request_logs'
         verbose_name        = 'request_log'
         verbose_name_plural = 'request_logs'
+
+# GENERIC FUNCTION TO TRACK THE CHANGES OF MANY TO MANY FIELDS
+def track_m2m_field_changes(sender, instance, action, reverse, model, pk_set, logModel, **kwargs):
+    cache_key = f"m2m_{instance.pk}_{ulid.new().str}"
+    
+    if action == "pre_add":
+        existing_pks = set(instance.sub_categories.values_list('pk', flat=True))
+        cache.set(cache_key, list(existing_pks), 300)
+
+    elif action == "post_add":
+            
+        previous_pks = cache.get(cache_key, [])
+        new_pks = set(pk_set) - set(previous_pks)
+        cache.delete(cache_key)
+
+        for field in instance._meta.get_fields():
+            if field.many_to_many and field.remote_field.through == sender:
+                field_name = field.name
+                break
+
+        newValues = {f'{field_name}': list(new_pks)}
+        previousValues = {f'{field_name}': list(previous_pks)}
+
+
+        logModel.objects.create(
+            user=instance.user_updated_at if previous_pks else instance.user_created_at,
+            action=LogActionsEnum.UPDATE.value if previous_pks else LogActionsEnum.CREATE.value,
+            newValues=json.dumps(newValues),
+            previousValues=json.dumps(previousValues),
+            solcot=instance
+        )   
