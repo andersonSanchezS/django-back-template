@@ -242,5 +242,6 @@ class SupraSolcotSerializer(serializers.ModelSerializer):
             'global_contingencies'     : solcot.global_contingencies,
             'specification'            : solcot.specification,
             'description'              : solcot.description,
+            'state'                    : solcot.state,
         } for solcot in solcots] 
         return representation
