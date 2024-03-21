@@ -47,7 +47,17 @@ class NotificationConsumer(AsyncWebsocketConsumer):
             
 
     async def disconnect(self, close_code):
-        await self.close()
+        try:
+            await self.close()
+        except Exception as e:
+            pass
+        finally:
+            from apps.authentication.models import Token
+            tokenString = self.scope['query_string'].decode('utf-8').split('=')[1]
+            token       = await get_token(self, Token, tokenString)
+            user        = token['user']
+            await self.channel_layer.group_discard(f'notification_{user}', self.channel_name)
+            
 
     
     async def receive(self, text_data):
