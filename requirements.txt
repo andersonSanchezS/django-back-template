@@ -50,3 +50,6 @@ django-crontab
 bcrypt
 django-model-utils
 workalendar
+channels
+channels_redis
+uvicorn

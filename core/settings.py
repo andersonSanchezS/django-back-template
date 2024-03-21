@@ -38,9 +38,9 @@ THOUSAND_SEPARATOR     = "."
 BASE_APPS        = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
                     'django.contrib.messages','django.contrib.staticfiles','django.contrib.humanize']
 
-LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc','apps.request']
+LOCAL_APPS       = ['apps.base', 'apps.authentication', 'apps.misc', 'apps.request', 'apps.socket_utils']
 
-THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab']
+THIRD_PARTY_APPS = ['rest_framework', 'corsheaders', 'gunicorn', 'django_seed', 'django_filters', 'django_crontab', 'channels']
 
 INSTALLED_APPS   = BASE_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -79,6 +79,7 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'core.wsgi.application'
+ASGI_APPLICATION = 'core.asgi.application'
 
 if DEBUG:
     DATABASES = {
@@ -154,7 +155,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES'    : [],
     'DEFAULT_FILTER_BACKENDS'       : ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS'      : 'rest_framework.pagination.PageNumberPagination',
-    'EXCEPTION_HANDLER'             : ['pps.base.exceptions.custom_exception_handler'],
+    'EXCEPTION_HANDLER'             : 'apps.base.exceptions.custom_exception_handler',
     'PAGE_SIZE': 30,
 }
 
@@ -178,3 +179,13 @@ LDAP_PORT=env('LDAP_PORT')
 #AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 #AWS_REGION = 'us-east-1'
 #AWS_QUERYSTRING_AUTH = False
+
+# Websocket settings
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": ['redis://' + 'localhost' + ':' + '6379' + '/1'],  # Update with your Redis host and port
+        },
+    },
+}

@@ -11,6 +11,7 @@ from apps.base.utils.index import response
 from apps.base.mixins.filterAndPaginationMixin import FilterAndPaginationMixin
 from apps.base.decorators.checkPermissions import checkPermissions
 from apps.request.enums import ProcessStateEnum
+from apps.authentication.enums import RoleEnum
 
 class SupraSolcotAV(FilterAndPaginationMixin, GenericAPIView):
     
@@ -18,7 +19,7 @@ class SupraSolcotAV(FilterAndPaginationMixin, GenericAPIView):
     serializer_class = SupraSolcotSerializer
     filterset_class  = SupraSolcotFilter
 
-    @checkPermissions(['ADMINISTRADOR'],['VER SUPRA SOLCOT'])
+    @checkPermissions(['ADMINISTRADOR','CLIENTE', 'COMPRADOR'],['VER SUPRA SOLCOT'])
     def get(self, request, pk=None):
         try:
             if pk:
@@ -27,6 +28,13 @@ class SupraSolcotAV(FilterAndPaginationMixin, GenericAPIView):
                 return response.success('Supra solcot obtenido correctamente', serializer.data)
             else:
                 queryset = self.get_queryset()
+                # based on the role of the user filter the supra solcots
+                match request._role:
+                    case RoleEnum.CLIENTE.value:
+                        queryset = queryset.filter(user_created_at=request._user)
+                    case RoleEnum.COMPRADOR.value:
+                        queryset = queryset.filter(solcot__buyer=request._user)
+
                 if request.query_params.get('paginate') == 'true':
                     paginated_queryset = self.paginate_queryset(queryset)
                     serializer = self.get_serializer(paginated_queryset, many=True)

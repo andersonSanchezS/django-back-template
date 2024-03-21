@@ -19,7 +19,7 @@ def genJwt(user):
                 'menus'           : None if user.is_superuser else [{'name': menu.description} for role in user.roles.all() for menu in role.menus.all()],
                 'email'           : user.email if user.email else '',
                 'is_superuser'    : user.is_superuser,
-                'exp'             : timezone.make_aware(dt.utcnow() + timedelta(days=3))
+                'exp'             : timezone.make_aware(dt.now() + timedelta(days=3))
             }
 
         # Generate the token

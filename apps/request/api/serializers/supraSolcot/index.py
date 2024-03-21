@@ -7,10 +7,11 @@ from django.db import transaction
 # Exceptions
 from apps.base.exceptions import HTTPException
 # Utils
-from apps.base.utils.index import ExtraFieldSerializer
-from apps.request.enums    import SolcotTypeEnum, SolcotStructureEnum, ProcessStateEnum
-from apps.authentication.enums import RoleEnum
-from apps.request.utils.index import getBuyer, genConsecutive, getWorkDay
+from apps.base.utils.index         import ExtraFieldSerializer
+from apps.request.enums            import SolcotTypeEnum, SolcotStructureEnum, ProcessStateEnum
+from apps.authentication.enums     import RoleEnum
+from apps.request.utils.index      import getBuyer, genConsecutive, getWorkDay
+from apps.socket_utils.utils.index import sendNotification
 
 class SupraSolcotSerializer(serializers.ModelSerializer):
     solcots = ExtraFieldSerializer(source='*', required=True, error_messages={"required": "Los solcots son requeridos", "blank":"Los solcots son requeridos"})
@@ -32,7 +33,8 @@ class SupraSolcotSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         try:
             globalBuyer = None
-            
+            buyers      = []
+
             # Get the solcots from the validated data then delete it from the validated data
             solcots     = validated_data.pop('solcots')
             supraSolcot = SupraSolcot.objects.create(**validated_data)
@@ -85,6 +87,12 @@ class SupraSolcotSerializer(serializers.ModelSerializer):
                     'is_unique_provider'   : solcot['is_unique_provider'] if 'is_unique_provider' in solcot else False,
                     'is_visit_required'    : solcot['is_visit_required'] if 'is_visit_required' in solcot else False,
                 }
+                # save the buyer in a list if the buyer isn't in the list
+                
+                # check if the buyer is already in the list
+                if globalBuyer and selectedBuyer not in buyers:
+                    buyers.append(globalBuyer)
+                
                 # Save the solcot
                 try:
                     createSolcot = Solcot.objects.create(**solcotData)
@@ -93,6 +101,24 @@ class SupraSolcotSerializer(serializers.ModelSerializer):
                         createSolcot.sub_categories.set(solcot['sub_categories'])
                 except Exception as e:
                     raise HTTPException(str(e), 400)
+            
+            # delete duplicates from the buyers list
+            buyers = list(set(buyers))
+
+            # send a notification to the buyer of each solcot
+            for buyer in buyers:
+                sendNotification(
+                    sender_user    = validated_data['client'],
+                    receiving_user = buyer,
+                    type           = "NEW_SOLCOT",
+                    title          = "Nueva solicitud de cotización",
+                    message        = "Se ha creado una nueva solicitud de cotización",
+                    button_text    = "Ver solicitud de cotización",
+                    button_link    = None,
+                    icon           = ""
+                )
+
+            raise HTTPException("Supra solcot creada exitosamente", 201)
             return supraSolcot
         except Exception as e:
             raise HTTPException(str(e), 400)

@@ -48,6 +48,11 @@ class AuthMiddleware:
             # add the user to the request
             request._user = user
 
+            # add the role of the user to the request take the first role
+            role = user.roles.all().first()
+            if role:
+                request._role = role.id
+
             # if the request has a body
             if not request.body:
                 response = self.get_response(request)
